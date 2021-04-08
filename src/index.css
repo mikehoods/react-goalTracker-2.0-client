@@ -28,13 +28,14 @@ body {
   text-decoration: none;
   padding: 6px;
   color: #EB5E0B;
-  text-decoration: underline #F8F1F1;
+  /* text-decoration: underline #F8F1F1; */
   padding-bottom: 5px;
   font-weight: 600;
   border-radius: 12px;
 }
 .navbar a:hover {
   background-color: #A3D2CA;
+  border: 1px solid #F8F1F1;
 }
 .home-h2 {
   text-align: center;
@@ -53,7 +54,8 @@ body {
   border: 1px solid #5EAAA8;
 }
 .goal-preview:hover {
-  box-shadow: 2px 2px grey;
+  box-shadow: 1px 3px 5px grey;
+  cursor: pointer;
 }
 .goal-header {
   background-color: #A3D2CA;
