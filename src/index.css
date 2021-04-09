@@ -30,14 +30,15 @@ body {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
-  color: #EB5E0B;
+  color: #F8F1F1;
   padding-bottom: 5px;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 12px;
 }
-.navbar a:hover {
+.navbar .current {
   background-color: #A3D2CA;
   border: 1px solid #F8F1F1;
+  color: #EB5E0B;
 }
 
 /* Home Styling */
