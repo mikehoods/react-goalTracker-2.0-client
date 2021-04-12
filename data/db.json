@@ -1,48 +1,94 @@
 {
- "goals": [
+  "goals": [
     {
-        "title": "Make a new app", 
-        "date": "4/7/2021", 
-        "steps": [ 
-            { "step": "Design front end", "complete": false },
-            { "step": "Set up backend", "complete": false },
-            { "step": "Troubleshoot and fix bugs", "complete": false },
-            { "step": "Deploy", "complete": false}
-        ],
-        "achieved": false,
-        "difficulty": "hard",
-        "priority": "high",
-        "category": "work",
-        "id": 1
+      "title": "Make a new app",
+      "date": "4/7/2021",
+      "steps": [
+        {
+          "step": "Design front end",
+          "complete": false
+        },
+        {
+          "step": "Set up backend",
+          "complete": false
+        },
+        {
+          "step": "Troubleshoot and fix bugs",
+          "complete": false
+        },
+        {
+          "step": "Deploy",
+          "complete": false
+        }
+      ],
+      "achieved": false,
+      "difficulty": "hard",
+      "priority": "high",
+      "category": "work",
+      "id": 1
     },
     {
-        "title": "Clean out greenhouse", 
-        "date": "4/7/2021", 
-        "steps": [ 
-            { "step": "Give plants away", "complete": false },
-            { "step": "Get rid of junk", "complete": false },
-            { "step": "Organize remaining plants", "complete": false },
-            { "step": "Pull weeds", "complete": false}
-        ],
-        "achieved": false,
-        "difficulty": "moderate",
-        "priority": "medium",
-        "category": "home",
-        "id": 2
+      "title": "Clean out greenhouse",
+      "date": "4/7/2021",
+      "steps": [
+        {
+          "step": "Give plants away",
+          "complete": false
+        },
+        {
+          "step": "Get rid of junk",
+          "complete": false
+        },
+        {
+          "step": "Organize remaining plants",
+          "complete": false
+        },
+        {
+          "step": "Pull weeds",
+          "complete": false
+        }
+      ],
+      "achieved": false,
+      "difficulty": "moderate",
+      "priority": "medium",
+      "category": "home",
+      "id": 2
     },
     {
-        "title": "Get back into writing", 
-        "date": "4/7/2021", 
-        "steps": [ 
-            { "step": "Brainstorm blog", "complete": false },
-            { "step": "Start keeping journal", "complete": false },
-            { "step": "Stop making excuses", "complete": false }
-        ],
-        "achieved": false,
-        "difficulty": "easy",
-        "priority": "moderate",
-        "category": "happiness",
-        "id": 3
+      "title": "Get back into writing",
+      "date": "4/7/2021",
+      "steps": [
+        {
+          "step": "Brainstorm blog",
+          "complete": false
+        },
+        {
+          "step": "Start keeping journal",
+          "complete": false
+        },
+        {
+          "step": "Stop making excuses",
+          "complete": false
+        }
+      ],
+      "achieved": false,
+      "difficulty": "easy",
+      "priority": "moderate",
+      "category": "happiness",
+      "id": 3
+    },
+    {
+      "title": "Testing",
+      "difficulty": "easy",
+      "priority": "low",
+      "steps": [
+        {
+          "step": "1234",
+          "complete": false
+        }
+      ],
+      "achieved": false,
+      "id": 4
     }
-    ]
+  ]
 }
