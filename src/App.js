@@ -2,6 +2,8 @@ import Navbar from './Navbar';
 import Home from './Home';
 import CreateGoal from './CreateGoal';
 import GoalDetails from './GoalDetails';
+import NotFound from './NotFound';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -19,6 +21,9 @@ function App() {
           </Route>
           <Route path='/goals/:id'>
             <GoalDetails />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </div>
