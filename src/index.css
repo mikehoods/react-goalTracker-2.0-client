@@ -107,6 +107,10 @@ body {
 }
 .goal-icons i {
   padding: 4px;
+  cursor: pointer;
+}
+.goal-icons i:hover {
+  color: grey;
 }
 
 /* Create Goal Styling */

@@ -1,9 +1,18 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import useFetch from "./useFetch";
 
 const GoalDetails = () => {
     const { id } = useParams();
     const { data: goal, error, isLoading } = useFetch('http://localhost:8000/goals/' + id );
+    const history = useHistory();
+
+    const handleClick = () => {
+        fetch('http://localhost:8000/goals/' + goal.id, {
+            method: 'DELETE'
+        }).then(() => {
+            history.push('/');
+        })
+    }
 
     return (
         <div className="goal-details">
@@ -18,7 +27,7 @@ const GoalDetails = () => {
                         </div>
                         <div className="goal-icons">
                             <i class = "material-icons">edit</i>
-                            <i class = "material-icons">delete</i>
+                            <i class = "material-icons" onClick={handleClick}>delete</i>
                             <i class = "material-icons">done</i>
                         </div> 
                     </div>

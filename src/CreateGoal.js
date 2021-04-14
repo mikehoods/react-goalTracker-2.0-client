@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 // import { useForm, useFieldArray} from 'react-hook-form';
 
 const CreateGoal = () => {
-    const [title, setTitle] = useState("")
-    const [difficulty, setDifficulty] = useState("easy")
-    const [priority, setPriority] = useState("low")
-    const [step, setStep] = useState("")
+    const [title, setTitle] = useState("");
+    const [difficulty, setDifficulty] = useState("easy");
+    const [priority, setPriority] = useState("low");
+    const [step, setStep] = useState("");
+    const [isPending, setIsPending] = useState(false);
+    const history = useHistory();
 
     // const StepList = () => {
     //     const { control, register } = useForm();
@@ -56,14 +59,17 @@ const CreateGoal = () => {
         const steps = [{ "step": step, "complete": false }]
         const achieved = false
         const goal = { title, difficulty, priority, steps, achieved }
-        console.log(goal)
+        
+        setIsPending(true);
 
         fetch('http://localhost:8000/goals', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(goal)
         }).then(() => {
-            console.log('new goal added')
+            console.log('new goal added');
+            setIsPending(false);
+            history.push('/');
         })
     }
 
@@ -115,7 +121,8 @@ const CreateGoal = () => {
                 {/* {stepList}             */}
                 {/* <StepList /> */}
                 <div className="create-goal-footer">
-                    <button>Create Goal</button>
+                    {!isPending && <button>Create Goal</button>}
+                    {isPending && <button disabled>Adding goal...</button>}
                 </div>
             </form>
         </div>
