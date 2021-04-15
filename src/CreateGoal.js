@@ -1,64 +1,35 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-// import { useForm, useFieldArray} from 'react-hook-form';
 
 const CreateGoal = () => {
     const [title, setTitle] = useState("");
     const [difficulty, setDifficulty] = useState("easy");
     const [priority, setPriority] = useState("low");
     const [step, setStep] = useState("");
+    const [tags, setTags] = useState([]);
+
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
-    // const StepList = () => {
-    //     const { control, register } = useForm();
-    //     const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
-    //       control, // control props comes from useForm (optional: if you are using FormContext)
-    //       name: "steps", // unique name for your Field Array
-    //       // keyName: "id", default to "id", you can change the key name
-    //     });
-      
-    //     return (
-    //         <form>
-    //         <p>All steps</p>
-    //       {fields.map((field, index) => (
-    //         <input
-    //           key={field.id} // important to include key with field's id
-    //           {...register(`steps.${index}.value`)} 
-    //           defaultValue={field.value} // make sure to include defaultValue
-    //         />
-    //       ))}
-          
-    //       </form>
-    //     );
-    //   }
-
-        // const stepList =
-        // steps.map((step, index) => {
-        //     return (
-        //         <div key={index} className="input-field">
-        //             <label htmlFor="steps">Step {index+1}</label>
-        //             <div className="input-step">
-        //                 <input 
-        //                     id="steps"
-        //                     type="text"
-        //                     value={step} 
-        //                     onChange={(e) => {
-        //                         console.log(steps)
-        //                         setSteps(...steps, steps[index] = e.target.value)
-        //                         console.log(steps)
-        //                     }}
-        //                 />
-        //             </div>
-        //         </div>
-        //     )
-        // })
+    const handleAddTag = (e) => {
+        console.log("key:" + e.key)
+        const currentTag = e.target.value.replace(/[, ]+/g, "").trim()
+        if (e.key === ',' && currentTag) {
+            if (!tags.includes(currentTag)) {
+                setTags([...tags, currentTag])
+            }
+            e.target.value = ""
+        }
+        if (!currentTag) {
+            e.target.value = ""
+        } 
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const steps = [{ "step": step, "complete": false }]
         const achieved = false
-        const goal = { title, difficulty, priority, steps, achieved }
+        const goal = { title, difficulty, priority, steps, achieved, tags }
         
         setIsPending(true);
 
@@ -118,8 +89,19 @@ const CreateGoal = () => {
                     />
                     <p className="add-step">+ Add Step</p>
                 </div>
-                {/* {stepList}             */}
-                {/* <StepList /> */}
+                <label>Tags:</label>
+                <input
+                    type="text"
+                    id="add-tag"
+                    // value={tempTag}
+                    // onChange={(e) => setTempTag(e.target.value)}
+                    onKeyUp={handleAddTag}
+                />
+                <div className="tags">
+                    {tags.map((tag, index) => (
+                        <p key={index}>#{tag}</p>
+                    ))}
+                </div>
                 <div className="create-goal-footer">
                     {!isPending && <button>Create Goal</button>}
                     {isPending && <button disabled>Adding goal...</button>}

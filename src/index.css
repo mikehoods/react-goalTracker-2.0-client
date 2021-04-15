@@ -179,3 +179,35 @@ form .form-selectors {
   font-weight: 400;
   margin-bottom: 10px;
 }
+
+/* Not Found Styling */
+.not-found {
+  border: 1px solid grey;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+.not-found h2 {
+  font-weight: 600;
+  text-align: center;
+  background-color: #EB5E0B;
+  color: #F8F1F1;
+  padding: 8px;
+  border-radius: 11px 11px 0 0;
+}
+.not-found p {
+  margin: 25px 0;
+  font-size: 18px;
+  padding: 10px;
+}
+.not-found a {
+  text-decoration: none;
+  color: #EB5E0B;
+  font-weight: 500;
+  
+}
+.not-found-link {
+  text-align: right;
+  padding: 12px;
+  background-color: #A3D2CA;
+  border-radius: 0 0 11px 11px;
+}

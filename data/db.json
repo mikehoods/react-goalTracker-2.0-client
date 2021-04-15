@@ -76,6 +76,25 @@
       "priority": "moderate",
       "category": "happiness",
       "id": 3
+    },
+    {
+      "title": "Testing Tags",
+      "difficulty": "easy",
+      "priority": "low",
+      "steps": [
+        {
+          "step": "Test tags",
+          "complete": false
+        }
+      ],
+      "achieved": false,
+      "tags": [
+        "tag",
+        "one",
+        "two",
+        "three"
+      ],
+      "id": 4
     }
   ]
 }
