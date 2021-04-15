@@ -25,6 +25,12 @@
       "difficulty": "hard",
       "priority": "high",
       "category": "work",
+      "tags": [
+        "webdev",
+        "react",
+        "codingpractice",
+        "keeplearning"
+      ],
       "id": 1
     },
     {
@@ -52,6 +58,13 @@
       "difficulty": "moderate",
       "priority": "medium",
       "category": "home",
+      "tags": [
+        "garden",
+        "greenhouse",
+        "plants",
+        "housework",
+        "cleaning"
+      ],
       "id": 2
     },
     {
@@ -75,26 +88,38 @@
       "difficulty": "easy",
       "priority": "moderate",
       "category": "happiness",
+      "tags": [
+        "skilldevelopment",
+        "writing",
+        "noexcuses"
+      ],
       "id": 3
     },
     {
       "title": "Testing Tags",
       "difficulty": "easy",
-      "priority": "low",
+      "priority": "medium",
       "steps": [
         {
-          "step": "Test tags",
+          "step": "Add tag display and styling to GoalList.js",
           "complete": false
         }
       ],
       "achieved": false,
       "tags": [
-        "tag",
-        "one",
-        "two",
-        "three"
+        "blessed",
+        "hashtag",
+        "emoji",
+        "meow",
+        "kitty",
+        "cat",
+        "rufus",
+        "words",
+        "hello",
+        "hi",
+        "yo"
       ],
-      "id": 4
+      "id": 5
     }
   ]
 }

@@ -36,6 +36,11 @@ const GoalDetails = () => {
                                 <p key={i}>{i + 1}. {step.step}</p>
                             ))}
                         </div>
+                        <div className="tag-cloud">
+                            {goal.tags.map((tag, index) => (
+                                <p className="tag" key={index}>#{tag}</p>
+                            ))}
+                        </div>
                         <div className="goal-footer">
                             <p>Category: {goal.category}</p>
                             <p>Priority: {goal.priority}</p>

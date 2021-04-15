@@ -88,20 +88,20 @@ const CreateGoal = () => {
                         onChange={(e) => setStep(e.target.value)}
                     />
                     <p className="add-step">+ Add Step</p>
-                </div>
-                <label>Tags:</label>
+                    <label>Tags:</label>
                 <input
                     type="text"
                     id="add-tag"
-                    // value={tempTag}
-                    // onChange={(e) => setTempTag(e.target.value)}
                     onKeyUp={handleAddTag}
                 />
-                <div className="tags">
+                <p className="input-help">Type "," (comma) to add tag</p>
+                <div className="tag-cloud">
                     {tags.map((tag, index) => (
-                        <p key={index}>#{tag}</p>
+                        <p className="tag" key={index}>#{tag}</p>
                     ))}
                 </div>
+                </div>
+                
                 <div className="create-goal-footer">
                     {!isPending && <button>Create Goal</button>}
                     {isPending && <button disabled>Adding goal...</button>}
