@@ -164,6 +164,17 @@ form .form-selectors {
   cursor: pointer;
   font-weight: 500;
 }
+.create-goal .created-steps {
+  border-radius: 12px;
+  background-color: #A3D2CA;
+  padding: 4px;
+  margin: 8px 0;
+  border: 1px solid #5EAAA8;
+  color: #F8F1F1;
+}
+.created-steps p {
+  font-weight: 500;
+}
 .create-goal-footer {
   border-radius: 0 0 11px 11px;
   padding: 8px;

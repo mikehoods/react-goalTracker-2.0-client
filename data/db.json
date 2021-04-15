@@ -24,7 +24,6 @@
       "achieved": false,
       "difficulty": "hard",
       "priority": "high",
-      "category": "work",
       "tags": [
         "webdev",
         "react",
@@ -55,9 +54,8 @@
         }
       ],
       "achieved": false,
-      "difficulty": "moderate",
+      "difficulty": "medium",
       "priority": "medium",
-      "category": "home",
       "tags": [
         "garden",
         "greenhouse",
@@ -86,8 +84,7 @@
       ],
       "achieved": false,
       "difficulty": "easy",
-      "priority": "moderate",
-      "category": "happiness",
+      "priority": "medium",
       "tags": [
         "skilldevelopment",
         "writing",
@@ -96,30 +93,77 @@
       "id": 3
     },
     {
-      "title": "Testing Tags",
-      "difficulty": "easy",
-      "priority": "medium",
+      "title": "Finish the front end of this app",
+      "difficulty": "medium",
+      "priority": "high",
       "steps": [
         {
-          "step": "Add tag display and styling to GoalList.js",
+          "step": "Add delete button for tags and steps (on hover?)",
+          "complete": false
+        },
+        {
+          "step": "Add onClick to tag for filtered view by tag",
+          "complete": false
+        },
+        {
+          "step": "CreateGoal.js submit validation for zero tags or steps (modal?)",
+          "complete": false
+        },
+        {
+          "step": "Set up edit goal functionality",
+          "complete": false
+        },
+        {
+          "step": "Add onClick strikethrough for completed goal steps",
+          "complete": false
+        },
+        {
+          "step": "Add auth (Auth0)",
           "complete": false
         }
       ],
       "achieved": false,
       "tags": [
-        "blessed",
-        "hashtag",
-        "emoji",
-        "meow",
-        "kitty",
-        "cat",
-        "rufus",
-        "words",
-        "hello",
-        "hi",
-        "yo"
+        "webdevelopment",
+        "react",
+        "frontend",
+        "100daysofcode"
       ],
-      "id": 5
+      "id": 7
+    },
+    {
+      "title": "More testing",
+      "difficulty": "easy",
+      "priority": "low",
+      "steps": [
+        {
+          "step": "This is step one",
+          "complete": false
+        },
+        {
+          "step": "Step two ooh ooh ooh",
+          "complete": false
+        },
+        {
+          "step": "The third step is the best",
+          "complete": false
+        },
+        {
+          "step": "Style this step last",
+          "complete": false
+        },
+        {
+          "step": "Johnny Five a-live",
+          "complete": false
+        }
+      ],
+      "achieved": false,
+      "tags": [
+        "1234",
+        "dddd",
+        "aaa"
+      ],
+      "id": 8
     }
   ]
 }

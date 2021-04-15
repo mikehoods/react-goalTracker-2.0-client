@@ -5,14 +5,14 @@ const CreateGoal = () => {
     const [title, setTitle] = useState("");
     const [difficulty, setDifficulty] = useState("easy");
     const [priority, setPriority] = useState("low");
-    const [step, setStep] = useState("");
+    const [tempStep, setTempStep] = useState("");
+    const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
 
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
     const handleAddTag = (e) => {
-        console.log("key:" + e.key)
         const currentTag = e.target.value.replace(/[, ]+/g, "").trim()
         if (e.key === ',' && currentTag) {
             if (!tags.includes(currentTag)) {
@@ -25,9 +25,17 @@ const CreateGoal = () => {
         } 
     }
 
+    const handleAddStep = (e) => {
+        const step = { "step": tempStep, "complete": false }
+        setSteps([...steps, step])
+        setTempStep("")
+        console.log(steps)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        const steps = [{ "step": step, "complete": false }]
+        
+        
         const achieved = false
         const goal = { title, difficulty, priority, steps, achieved, tags }
         
@@ -81,20 +89,25 @@ const CreateGoal = () => {
                             </select>
                         </div>
                     </div>
-                    <label>Step 1:</label>
+                    <label>Step:</label>
                     <input
                         type="text"
-                        required
-                        onChange={(e) => setStep(e.target.value)}
+                        value={tempStep}
+                        onChange={(e) => setTempStep(e.target.value)}
                     />
-                    <p className="add-step">+ Add Step</p>
+                    <p className="add-step" onClick={handleAddStep}>+ Add Step</p>
+                    <div className="created-steps">
+                        {steps.map((step, index) => (
+                            <p className="created-step" key={index}>{index + 1}. {step.step}</p>
+                        ))}
+                    </div>
                     <label>Tags:</label>
                 <input
                     type="text"
                     id="add-tag"
                     onKeyUp={handleAddTag}
                 />
-                <p className="input-help">Type "," (comma) to add tag</p>
+                <p className="input-help">Press "," (comma) to add tag</p>
                 <div className="tag-cloud">
                     {tags.map((tag, index) => (
                         <p className="tag" key={index}>#{tag}</p>

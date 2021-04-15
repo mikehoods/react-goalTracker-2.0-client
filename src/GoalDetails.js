@@ -26,9 +26,9 @@ const GoalDetails = () => {
                             <h3 className="goal-date">{goal.date}</h3>
                         </div>
                         <div className="goal-icons">
-                            <i class = "material-icons">edit</i>
-                            <i class = "material-icons" onClick={handleClick}>delete</i>
-                            <i class = "material-icons">done</i>
+                            <i className = "material-icons">edit</i>
+                            <i className = "material-icons" onClick={handleClick}>delete</i>
+                            <i className = "material-icons">done</i>
                         </div> 
                     </div>
                         <div className="goal-steps">

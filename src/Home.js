@@ -12,7 +12,7 @@ const Home = () => {
                 {/* Conditionally render isLoading or GoalList */}
                 { isLoading && <div>"Loading..."</div> }
                 { goals && <GoalList goals={goals} title="All Goals" /> } 
-                { goals && <GoalList goals={goals.filter((goal) => goal.category === 'happiness')} title="Filtered Goals"/> } 
+                { goals && <GoalList goals={goals.filter((goal) => goal.tags.includes('garden'))} title="Filtered Goals"/> } 
         </div>
     );
 }
