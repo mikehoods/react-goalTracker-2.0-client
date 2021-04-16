@@ -1,38 +1,6 @@
 {
   "goals": [
     {
-      "title": "Make a new app",
-      "date": "4/7/2021",
-      "steps": [
-        {
-          "step": "Design front end",
-          "complete": false
-        },
-        {
-          "step": "Set up backend",
-          "complete": false
-        },
-        {
-          "step": "Troubleshoot and fix bugs",
-          "complete": false
-        },
-        {
-          "step": "Deploy",
-          "complete": false
-        }
-      ],
-      "achieved": false,
-      "difficulty": "hard",
-      "priority": "high",
-      "tags": [
-        "webdev",
-        "react",
-        "codingpractice",
-        "keeplearning"
-      ],
-      "id": 1
-    },
-    {
       "title": "Clean out greenhouse",
       "date": "4/7/2021",
       "steps": [

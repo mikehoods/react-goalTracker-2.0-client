@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import useFetch from "./useFetch";
 
 const GoalDetails = () => {
@@ -26,7 +26,9 @@ const GoalDetails = () => {
                             <h3 className="goal-date">{goal.date}</h3>
                         </div>
                         <div className="goal-icons">
-                            <i className = "material-icons">edit</i>
+                            <Link to={`/edit/${goal.id}`}>
+                                <i className = "material-icons">edit</i>
+                            </Link>
                             <i className = "material-icons" onClick={handleClick}>delete</i>
                             <i className = "material-icons">done</i>
                         </div> 

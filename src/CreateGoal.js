@@ -96,11 +96,11 @@ const CreateGoal = () => {
                         onChange={(e) => setTempStep(e.target.value)}
                     />
                     <p className="add-step" onClick={handleAddStep}>+ Add Step</p>
-                    <div className="created-steps">
+                    {steps.length > 0 && <div className="created-steps">
                         {steps.map((step, index) => (
                             <p className="created-step" key={index}>{index + 1}. {step.step}</p>
                         ))}
-                    </div>
+                    </div>}
                     <label>Tags:</label>
                 <input
                     type="text"

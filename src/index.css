@@ -108,6 +108,7 @@ body {
 .goal-icons i {
   padding: 4px;
   cursor: pointer;
+  color: #F8F1F1;
 }
 .goal-icons i:hover {
   color: grey;
