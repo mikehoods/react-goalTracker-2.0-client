@@ -8,13 +8,34 @@ const EditGoal = () => {
     const history = useHistory();
 
     const [title, setTitle] = useState("");
-    const [difficulty, setDifficulty] = useState("easy");
-    const [priority, setPriority] = useState("low");
+    const [difficulty, setDifficulty] = useState("");
+    const [priority, setPriority] = useState("");
     const [tempStep, setTempStep] = useState("");
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
 
     const [isPending, setIsPending] = useState(false);
+
+    const stepList = steps.map((step, index) => (
+        <div key={index}>
+            <label>Step {index + 1}:</label>
+            <input
+            type="text"
+            value={step.step}
+            onChange={(e) => handleStepChange(e, index)}
+            />
+        </div>  
+    ))
+
+    useEffect(() => {
+        if (goal) {
+            setTitle(goal.title)
+            setDifficulty(goal.difficulty)
+            setPriority(goal.priority)
+            setSteps(goal.steps)
+            setTags(goal.tags)
+        }
+    }, [goal])
 
     const handleClick = () => {
         fetch('http://localhost:8000/goals/' + goal.id, {
@@ -29,6 +50,7 @@ const EditGoal = () => {
         if (e.key === ',' && currentTag) {
             if (!tags.includes(currentTag)) {
                 setTags([...tags, currentTag])
+                console.log(tags)
             }
             e.target.value = ""
         }
@@ -44,23 +66,25 @@ const EditGoal = () => {
         console.log(steps)
     }
 
+    const handleStepChange = (e, index) => {
+        setSteps([...steps], steps[index].step = e.target.value)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         
-        
-        const achieved = false
-        const goal = { title, difficulty, priority, steps, achieved, tags }
+        const updatedGoal = { title, difficulty, priority, steps, tags }
         
         setIsPending(true);
 
-        fetch('http://localhost:8000/goals', {
-            method: 'POST',
+        fetch('http://localhost:8000/goals/' + goal.id, {
+            method: 'PUT',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(goal)
+            body: JSON.stringify(updatedGoal)
         }).then(() => {
-            console.log('new goal added');
+            console.log('goal updated');
             setIsPending(false);
-            history.push('/');
+            history.push('/goals/' + goal.id);
         })
     }
 
@@ -73,14 +97,14 @@ const EditGoal = () => {
                 <input
                     type="text"
                     required
-                    value={goal.title}
+                    value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
                 <div className="form-selectors">
                     <div className="selector">
                         <p>Difficulty: </p>
                         <select
-                            value={goal.difficulty}
+                            value={difficulty}
                             onChange={(e) => setDifficulty(e.target.value)}
                         >
                             <option value="easy">easy</option>
@@ -92,7 +116,7 @@ const EditGoal = () => {
                     <div className="selector">
                         <p>Priority: </p>
                         <select
-                            value={goal.priority}
+                            value={priority}
                             onChange={(e) => setPriority(e.target.value)}
                         >
                             <option value="low">low</option>
@@ -101,25 +125,8 @@ const EditGoal = () => {
                         </select>
                     </div>
                 </div>
-                {goal.steps.map((step, index) => (
-                    <div>
-                        <label>Step {index + 1}:</label>
-                        <input
-                        type="text"
-                        value={step.step}
-                        onChange={(e) => setTempStep(e.target.value)}
-                        />
-                    </div>
-                    
-                    
-                ))}
-                
+                {stepList}                
                 <p className="add-step" onClick={handleAddStep}>+ Add Step</p>
-                {steps.length > 0 && <div className="created-steps">
-                    {steps.map((step, index) => (
-                        <p className="created-step" key={index}>{index + 1}. {step.step}</p>
-                    ))}
-                </div>}
                 <label>Tags:</label>
             <input
                 type="text"
@@ -128,7 +135,7 @@ const EditGoal = () => {
             />
             <p className="input-help">Press "," (comma) to add tag</p>
             <div className="tag-cloud">
-                {goal.tags.map((tag, index) => (
+                {tags.map((tag, index) => (
                     <p className="tag" key={index}>#{tag}</p>
                 ))}
             </div>

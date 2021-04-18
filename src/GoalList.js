@@ -13,7 +13,7 @@ const GoalList = ({goals, title}) => {
                         </div>
                         <div className="goal-steps">
                             {goal.steps.map((step, i) => (
-                                <p key={i}>{i + 1}. {step.step}</p>
+                                <p className="created-step" key={i}>{i + 1}. {step.step}</p>
                             ))}
                         </div>
                         <div className="tag-cloud">

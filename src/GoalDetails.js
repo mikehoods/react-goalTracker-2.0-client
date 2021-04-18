@@ -44,7 +44,6 @@ const GoalDetails = () => {
                             ))}
                         </div>
                         <div className="goal-footer">
-                            <p>Category: {goal.category}</p>
                             <p>Priority: {goal.priority}</p>
                             <p>Difficulty: {goal.difficulty}</p>
                     </div>

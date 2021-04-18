@@ -35,28 +35,32 @@
     },
     {
       "title": "Get back into writing",
-      "date": "4/7/2021",
+      "difficulty": "hard",
+      "priority": "medium",
       "steps": [
         {
           "step": "Brainstorm blog",
           "complete": false
         },
         {
-          "step": "Start keeping journal",
+          "step": "Start keeping journal today",
           "complete": false
         },
         {
           "step": "Stop making excuses",
           "complete": false
+        },
+        {
+          "step": "Testing edit form",
+          "complete": false
         }
       ],
-      "achieved": false,
-      "difficulty": "easy",
-      "priority": "medium",
       "tags": [
         "skilldevelopment",
         "writing",
-        "noexcuses"
+        "noexcuses",
+        "edits",
+        "testing"
       ],
       "id": 3
     },
@@ -100,36 +104,28 @@
       "id": 7
     },
     {
-      "title": "More testing",
+      "title": "Reformat addGoal.js",
       "difficulty": "easy",
       "priority": "low",
       "steps": [
         {
-          "step": "This is step one",
+          "step": "123",
           "complete": false
         },
         {
-          "step": "Step two ooh ooh ooh",
+          "step": "445",
           "complete": false
         },
         {
-          "step": "The third step is the best",
-          "complete": false
-        },
-        {
-          "step": "Style this step last",
-          "complete": false
-        },
-        {
-          "step": "Johnny Five a-live",
+          "step": "Yass!",
           "complete": false
         }
       ],
       "achieved": false,
       "tags": [
-        "1234",
-        "dddd",
-        "aaa"
+        "newGoal",
+        "testing",
+        "addGoal"
       ],
       "id": 8
     }

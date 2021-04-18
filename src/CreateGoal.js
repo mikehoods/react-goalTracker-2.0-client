@@ -6,7 +6,7 @@ const CreateGoal = () => {
     const [difficulty, setDifficulty] = useState("easy");
     const [priority, setPriority] = useState("low");
     const [tempStep, setTempStep] = useState("");
-    const [steps, setSteps] = useState([]);
+    const [steps, setSteps] = useState([{"step": "", "complete": false}]);
     const [tags, setTags] = useState([]);
 
     const [isPending, setIsPending] = useState(false);
@@ -25,17 +25,31 @@ const CreateGoal = () => {
         } 
     }
 
+    const stepList = steps.map((step, index) => (
+        <div key={index}>
+            <label>Step {index + 1}:</label>
+            <input
+            type="text"
+            value={step.step}
+            onChange={(e) => handleStepChange(e, index)}
+            />
+        </div>  
+    ))
+
+    const handleStepChange = (e, index) => {
+        setSteps([...steps], steps[index].step = e.target.value)
+    }
+
     const handleAddStep = (e) => {
+        setTempStep("")
         const step = { "step": tempStep, "complete": false }
         setSteps([...steps, step])
-        setTempStep("")
+        
         console.log(steps)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        
-        
         const achieved = false
         const goal = { title, difficulty, priority, steps, achieved, tags }
         
@@ -89,18 +103,19 @@ const CreateGoal = () => {
                             </select>
                         </div>
                     </div>
-                    <label>Step:</label>
+                    {/* <label>Step:</label>
                     <input
                         type="text"
                         value={tempStep}
                         onChange={(e) => setTempStep(e.target.value)}
-                    />
+                    /> */}
+                    {stepList}
                     <p className="add-step" onClick={handleAddStep}>+ Add Step</p>
-                    {steps.length > 0 && <div className="created-steps">
+                    {/* {steps.length > 0 && <div className="created-steps">
                         {steps.map((step, index) => (
                             <p className="created-step" key={index}>{index + 1}. {step.step}</p>
                         ))}
-                    </div>}
+                    </div>} */}
                     <label>Tags:</label>
                 <input
                     type="text"
