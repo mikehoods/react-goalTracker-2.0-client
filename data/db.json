@@ -102,32 +102,6 @@
         "100daysofcode"
       ],
       "id": 7
-    },
-    {
-      "title": "Reformat addGoal.js",
-      "difficulty": "easy",
-      "priority": "low",
-      "steps": [
-        {
-          "step": "123",
-          "complete": false
-        },
-        {
-          "step": "445",
-          "complete": false
-        },
-        {
-          "step": "Yass!",
-          "complete": false
-        }
-      ],
-      "achieved": false,
-      "tags": [
-        "newGoal",
-        "testing",
-        "addGoal"
-      ],
-      "id": 8
     }
   ]
 }

@@ -121,7 +121,7 @@ body {
   text-align: center;
   border: 1px solid grey;
   border-radius: 12px;
-  background: linear-gradient(to bottom right, #5EAAA8, #F8F1F1, #5EAAA8, #F8F1F1, #5EAAA8);
+  background: linear-gradient(to bottom right, #5EAAA8, #F8F1F1, #A3D2CA, #F8F1F1, #5EAAA8);
 }
 .create-goal label {
   text-align: left;
@@ -176,6 +176,14 @@ form .form-selectors {
 .created-steps p {
   font-weight: 500;
 }
+.form-step {
+  display: flex;
+  align-items: center;
+}
+.form-step i {
+  cursor: pointer;
+  padding-left: 6px;
+}
 .create-goal-footer {
   border-radius: 0 0 11px 11px;
   padding: 8px;
@@ -197,7 +205,7 @@ form .form-selectors {
 }
 .form-main .input-help {
   font-size: 12px;
-  color: #F8F1F1;
+  color: #EB5E0B;
   font-weight: 600;
   margin-bottom: 16px;
 }

@@ -28,11 +28,14 @@ const CreateGoal = () => {
     const stepList = steps.map((step, index) => (
         <div key={index}>
             <label>Step {index + 1}:</label>
-            <input
-            type="text"
-            value={step.step}
-            onChange={(e) => handleStepChange(e, index)}
-            />
+            <div className="form-step">
+                <input
+                    type="text"
+                    value={step.step}
+                    onChange={(e) => handleStepChange(e, index)}
+                />
+                <i className="material-icons" onClick={(e) => handleDeleteStep(e, index)}>delete</i>
+            </div>            
         </div>  
     ))
 
@@ -44,7 +47,10 @@ const CreateGoal = () => {
         setTempStep("")
         const step = { "step": tempStep, "complete": false }
         setSteps([...steps, step])
-        
+    }
+
+    const handleDeleteStep = (e, index) => {
+        setSteps(steps => steps.filter((step, i) => i !== index))
         console.log(steps)
     }
 
@@ -103,19 +109,8 @@ const CreateGoal = () => {
                             </select>
                         </div>
                     </div>
-                    {/* <label>Step:</label>
-                    <input
-                        type="text"
-                        value={tempStep}
-                        onChange={(e) => setTempStep(e.target.value)}
-                    /> */}
                     {stepList}
                     <p className="add-step" onClick={handleAddStep}>+ Add Step</p>
-                    {/* {steps.length > 0 && <div className="created-steps">
-                        {steps.map((step, index) => (
-                            <p className="created-step" key={index}>{index + 1}. {step.step}</p>
-                        ))}
-                    </div>} */}
                     <label>Tags:</label>
                 <input
                     type="text"
@@ -129,7 +124,6 @@ const CreateGoal = () => {
                     ))}
                 </div>
                 </div>
-                
                 <div className="create-goal-footer">
                     {!isPending && <button>Create Goal</button>}
                     {isPending && <button disabled>Adding goal...</button>}

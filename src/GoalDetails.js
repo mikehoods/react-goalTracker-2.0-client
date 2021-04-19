@@ -29,8 +29,8 @@ const GoalDetails = () => {
                             <Link to={`/edit/${goal.id}`}>
                                 <i className = "material-icons">edit</i>
                             </Link>
-                            <i className = "material-icons" onClick={handleClick}>delete</i>
-                            <i className = "material-icons">done</i>
+                            <i className="material-icons" onClick={handleClick}>delete</i>
+                            <i className="material-icons">done</i>
                         </div> 
                     </div>
                         <div className="goal-steps">

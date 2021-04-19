@@ -19,11 +19,14 @@ const EditGoal = () => {
     const stepList = steps.map((step, index) => (
         <div key={index}>
             <label>Step {index + 1}:</label>
-            <input
-            type="text"
-            value={step.step}
-            onChange={(e) => handleStepChange(e, index)}
-            />
+            <div className="form-step">
+                <input
+                    type="text"
+                    value={step.step}
+                    onChange={(e) => handleStepChange(e, index)}
+                />
+                <i className="material-icons" onClick={(e) => handleDeleteStep(e, index)}>delete</i>
+            </div> 
         </div>  
     ))
 
@@ -63,6 +66,11 @@ const EditGoal = () => {
         const step = { "step": tempStep, "complete": false }
         setSteps([...steps, step])
         setTempStep("")
+        console.log(steps)
+    }
+
+    const handleDeleteStep = (e, index) => {
+        setSteps(steps => steps.filter((step, i) => i !== index))
         console.log(steps)
     }
 
