@@ -74,7 +74,7 @@ const CreateGoal = () => {
 
     return (
         <div className="create-goal">
-            <h2>Create a New Goal</h2>
+            <h2>Create A New Goal</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-main">
                     <label>Goal name:</label>
@@ -118,11 +118,11 @@ const CreateGoal = () => {
                     onKeyUp={handleAddTag}
                 />
                 <p className="input-help">Press "," (comma) to add tag</p>
-                <div className="tag-cloud">
+                {tags.length > 0 && <div className="tag-cloud">
                     {tags.map((tag, index) => (
                         <p className="tag" key={index}>#{tag}</p>
                     ))}
-                </div>
+                </div>}
                 </div>
                 <div className="create-goal-footer">
                     {!isPending && <button>Create Goal</button>}

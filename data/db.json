@@ -1,42 +1,10 @@
 {
   "goals": [
     {
-      "title": "Clean out greenhouse",
-      "date": "4/7/2021",
-      "steps": [
-        {
-          "step": "Give plants away",
-          "complete": false
-        },
-        {
-          "step": "Get rid of junk",
-          "complete": false
-        },
-        {
-          "step": "Organize remaining plants",
-          "complete": false
-        },
-        {
-          "step": "Pull weeds",
-          "complete": false
-        }
-      ],
-      "achieved": false,
-      "difficulty": "medium",
-      "priority": "medium",
-      "tags": [
-        "garden",
-        "greenhouse",
-        "plants",
-        "housework",
-        "cleaning"
-      ],
-      "id": 2
-    },
-    {
       "title": "Get back into writing",
       "difficulty": "hard",
       "priority": "medium",
+      "date": "4/19/2021",
       "steps": [
         {
           "step": "Brainstorm blog",
@@ -68,6 +36,7 @@
       "title": "Finish the front end of this app",
       "difficulty": "medium",
       "priority": "high",
+      "date": "4/19/2021",
       "steps": [
         {
           "step": "Add delete button for tags and steps (on hover?)",
@@ -102,6 +71,34 @@
         "100daysofcode"
       ],
       "id": 7
+    },
+    {
+      "title": "Testing style",
+      "difficulty": "easy",
+      "priority": "low",
+      "date": "4/19/2021",
+      "steps": [
+        {
+          "step": "Fix readability issues",
+          "complete": false
+        },
+        {
+          "step": "Redesign navbar",
+          "complete": false
+        },
+        {
+          "step": "Figure out tag cloud styling",
+          "complete": false
+        }
+      ],
+      "achieved": false,
+      "tags": [
+        "testing",
+        "style",
+        "css",
+        "webdevelopment"
+      ],
+      "id": 8
     }
   ]
 }

@@ -142,11 +142,11 @@ const EditGoal = () => {
                 onKeyUp={handleAddTag}
             />
             <p className="input-help">Press "," (comma) to add tag</p>
-            <div className="tag-cloud">
-                {tags.map((tag, index) => (
-                    <p className="tag" key={index}>#{tag}</p>
-                ))}
-            </div>
+            {tags.length > 0 && <div className="tag-cloud">
+                    {tags.map((tag, index) => (
+                        <p className="tag" key={index}>#{tag}</p>
+                    ))}
+                </div>}
             </div>
             
             <div className="create-goal-footer">

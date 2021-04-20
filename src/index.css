@@ -4,8 +4,12 @@
   font-family: "Quicksand";
   margin: 0;
 }
-body {
+html {
   background-color: #F8F1F1;
+}
+body { 
+  background: linear-gradient(to bottom, #5EAAA8, #F8F1F1, #5EAAA8);
+  height: 100%;
 }
 
 /* Navbar Styling */
@@ -14,13 +18,16 @@ body {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #5EAAA8;
-  border-radius: 0 0 12px 12px;
+  max-width: 100vw;
+  background-color: #F8F1F1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid grey;
 }
 .navbar h1 {
-  color: #F8F1F1;
+  color: #5EAAA8;
   font-weight: 500;
 }
 .navbar .links {
@@ -30,14 +37,12 @@ body {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
-  color: #F8F1F1;
-  padding-bottom: 5px;
+  color: #5EAAA8;
   font-weight: 500;
   border-radius: 12px;
 }
 .navbar .current {
   background-color: #A3D2CA;
-  border: 1px solid #F8F1F1;
   color: #EB5E0B;
 }
 
@@ -52,6 +57,7 @@ body {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
+  margin-top: 8vh;
 }
 
 /* Goal List Styling */
@@ -59,56 +65,80 @@ body {
 .goal-preview {
   background-color: white;
   border-radius: 12px;
+  border: 1px solid grey;
+  width: 100%;
   margin-bottom: 18px;
-  border: 1px solid #5EAAA8;
 }
 .goal-preview:hover {
   box-shadow: 1px 3px 5px grey;
   cursor: pointer;
 }
 .goal-link {
-  text-decoration: none;
+  text-decoration: none;  
 }
 .goal-header {
-  background-color: #A3D2CA;
-  border-radius: 11px 11px 0 0;
-  padding: 10px;
-  color: #F8F1F1;
+  padding: 14px;
   width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
+  box-sizing: border-box;  
 }
 .goal-header h2 {
+  color: black;
   font-weight: 500;
+  padding: 0 8px;
+  border-radius: 12px;
 }
 .goal-date {
   color: grey;
   font-weight: 400;
+  padding: 0 8px;
 }
 .goal-steps {
   padding: 10px;
   color: black;
+  margin-left: 12px;
+}
+.goal-step {
+  display: flex;
+  margin: 4px 0;
+}
+.goal-step p {
+  margin: 0 4px;
+}
+.goal-step-number {
+  width: 12px;
+  color: #F8F1F1;
+  background-color: #A3D2CA;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 10px;
+  text-align: center;
+  font-weight: 900;
 }
 .goal-footer {
   display: flex;
+  padding: 14px;
+  justify-content: flex-end;
+  
+}
+.goal-footer p {
   background-color: #EB5E0B;
-  padding: 8px;
-  border-radius: 0 0 11px 11px;
-  justify-content: space-around;
   color: #F8F1F1;
+  font-weight: 500;
+  padding: 6px;
+  border-radius: 12px;
+  margin: 0 8px;
 }
 
 /* Goal Details Styling */
-.goal-container {
-  border: 1px solid #5EAAA8;
-  background-color: white;
-  border-radius: 12px;
+.goal-details .goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
 }
 .goal-icons i {
   padding: 4px;
   cursor: pointer;
-  color: #F8F1F1;
+  color: grey;
 }
 .goal-icons i:hover {
   color: grey;
@@ -121,7 +151,7 @@ body {
   text-align: center;
   border: 1px solid grey;
   border-radius: 12px;
-  background: linear-gradient(to bottom right, #5EAAA8, #F8F1F1, #A3D2CA, #F8F1F1, #5EAAA8);
+  background-color: #F8F1F1;
 }
 .create-goal label {
   text-align: left;
@@ -130,7 +160,7 @@ body {
 }
 .create-goal h2 {
   font-size: 20px;
-  color: #EB5E0B;
+  color: #5EAAA8;
   padding: 20px 10px 10px 0;
   border-radius: 11px 11px 0 0;
   font-weight: 600;
@@ -142,7 +172,7 @@ body {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
-  border: 1px solid grey;
+  border: 1px solid #A3D2CA;
   box-sizing: border-box;
   display: block;
   border-radius: 4px;
@@ -196,7 +226,7 @@ form .form-selectors {
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 10px;
 }
 #add-tag {
@@ -212,14 +242,16 @@ form .form-selectors {
 .tag-cloud {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 12px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 .tag-cloud .tag {
-  background-color: #5EAAA8;
-  color: #F8F1F1;
-  border: 1px solid #A3D2CA;
-  border-radius: 12px;
-  margin: 4px;
-  padding: 6px;
+  color: #5EAAA8;
+  margin: 2px;
+  padding: 4px;
+  font-weight: 500;
   
 }
 
