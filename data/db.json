@@ -11,7 +11,7 @@
         },
         {
           "step": "Start keeping journal today",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Stop making excuses",

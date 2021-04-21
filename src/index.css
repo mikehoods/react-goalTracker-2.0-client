@@ -148,7 +148,16 @@ body {
 .goal-icons i:hover {
   color: grey;
 }
-
+.goal-step-check {
+  color: #5EAAA8;
+}
+.goal-step-complete .goal-step-number {
+  background-color: #5EAAA8;
+}
+.goal-step-complete .goal-step-text {
+  text-decoration: line-through #5EAAA8;
+  color: grey;
+}
 /* Create Goal Styling */
 .create-goal {
   max-width: 500px;
