@@ -11,8 +11,8 @@ const Home = () => {
 
                 {/* Conditionally render isLoading or GoalList */}
                 { isLoading && <div>"Loading..."</div> }
-                { goals && <GoalList goals={goals} title="All Goals" /> } 
-                { goals && <GoalList goals={goals.filter((goal) => goal.tags.includes('garden'))} title="Filtered Goals"/> } 
+                { goals && <GoalList goals={goals} title="All Your Current Goals" /> } 
+                { goals && <GoalList goals={goals.filter((goal) => goal.tags.includes('testing'))} title="Filtered Goals"/> } 
         </div>
     );
 }

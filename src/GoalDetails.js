@@ -33,11 +33,11 @@ const GoalDetails = () => {
                             <i className="material-icons">done</i>
                         </div> 
                     </div>
-                    <div className="tag-cloud goal-tags">
+                    {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
                         {goal.tags.map((tag, index) => (
                             <p className="tag" key={index}>#{tag}</p>
                         ))}
-                    </div>
+                    </div>}
                     <div className="goal-steps">
                         {goal.steps.map((step, i) => (
                             <div className="goal-step" key={i}>

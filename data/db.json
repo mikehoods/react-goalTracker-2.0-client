@@ -97,6 +97,29 @@
         "webdevelopment"
       ],
       "id": 8
+    },
+    {
+      "title": "Testing No Tags",
+      "difficulty": "easy",
+      "priority": "low",
+      "date": "4/20/2021",
+      "steps": [
+        {
+          "step": "How does this look with no tags",
+          "complete": false
+        },
+        {
+          "step": "Should I require at least one tag",
+          "complete": false
+        },
+        {
+          "step": "Is that too demanding",
+          "complete": false
+        }
+      ],
+      "achieved": false,
+      "tags": [],
+      "id": 9
     }
   ]
 }

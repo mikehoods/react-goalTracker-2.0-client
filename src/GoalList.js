@@ -11,11 +11,11 @@ const GoalList = ({goals, title}) => {
                             <h2>{goal.title}</h2>
                             <h3 className="goal-date">{goal.date}</h3>
                         </div>
-                        <div className="tag-cloud goal-tags">
+                        {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
                         {goal.tags.map((tag, index) => (
                             <p className="tag" key={index}>#{tag}</p>
                         ))}
-                    </div>
+                    </div>}
                     <div className="goal-steps">
                         {goal.steps.map((step, i) => (
                             <div className="goal-step" key={i}>
@@ -26,8 +26,16 @@ const GoalList = ({goals, title}) => {
                         ))}
                     </div>
                         <div className="goal-footer">
-                            <p>Priority: {goal.priority}</p>
-                            <p>Difficulty: {goal.difficulty}</p>
+                            <p>Priority: 
+                                <span className="footer-span">
+                                    {goal.priority}
+                                </span>
+                            </p>
+                            <p>Difficulty:
+                                <span className="footer-span">
+                                    {goal.difficulty}
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </Link>

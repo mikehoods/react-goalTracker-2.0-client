@@ -108,12 +108,12 @@ body {
   margin: 0 4px;
 }
 .goal-step-number {
-  width: 12px;
+  width: 14px;
   color: #F8F1F1;
   background-color: #A3D2CA;
   border-radius: 50%;
   padding: 4px;
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   font-weight: 900;
 }
@@ -124,12 +124,14 @@ body {
   
 }
 .goal-footer p {
-  background-color: #EB5E0B;
-  color: #F8F1F1;
-  font-weight: 500;
-  padding: 6px;
-  border-radius: 12px;
+  color: #EB5E0B;
+  font-weight: 600;
   margin: 0 8px;
+}
+.footer-span {
+  color: black;
+  font-weight: 300;
+  margin-left: 4px;
 }
 
 /* Goal Details Styling */
@@ -273,6 +275,9 @@ form .form-selectors {
 .tag-div:hover .tag-icon {
   display: inline;
   cursor: pointer;
+}
+.tag-div:hover .tag {
+  font-weight: 800;
 }
 
 /* Not Found Styling */

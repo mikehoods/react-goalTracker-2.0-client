@@ -22,6 +22,7 @@ const EditGoal = () => {
             <div className="form-step">
                 <input
                     type="text"
+                    required
                     value={step.step}
                     onChange={(e) => handleStepChange(e, index)}
                 />
