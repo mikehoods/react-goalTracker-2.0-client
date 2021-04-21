@@ -40,20 +40,11 @@ const EditGoal = () => {
         }
     }, [goal])
 
-    const handleClick = () => {
-        fetch('http://localhost:8000/goals/' + goal.id, {
-            method: 'DELETE'
-        }).then(() => {
-            history.push('/');
-        })
-    }
-
     const handleAddTag = (e) => {
         const currentTag = e.target.value.replace(/[, ]+/g, "").trim()
         if (e.key === ',' && currentTag) {
             if (!tags.includes(currentTag)) {
                 setTags([...tags, currentTag])
-                console.log(tags)
             }
             e.target.value = ""
         }
@@ -66,12 +57,13 @@ const EditGoal = () => {
         const step = { "step": tempStep, "complete": false }
         setSteps([...steps, step])
         setTempStep("")
-        console.log(steps)
     }
 
     const handleDeleteStep = (e, index) => {
         setSteps(steps => steps.filter((step, i) => i !== index))
-        console.log(steps)
+    }
+    const handleDeleteTag = (e, index) => {
+        setTags(tags => tags.filter((tag, i) => i !== index))
     }
 
     const handleStepChange = (e, index) => {
@@ -144,7 +136,10 @@ const EditGoal = () => {
             <p className="input-help">Press "," (comma) to add tag</p>
             {tags.length > 0 && <div className="tag-cloud">
                     {tags.map((tag, index) => (
-                        <p className="tag" key={index}>#{tag}</p>
+                        <div className="tag-div" key={index}>
+                            <p className="tag">#{tag}</p>
+                            <i className="material-icons tag-icon" onClick={(e) => handleDeleteTag(e, index)}>delete</i>
+                        </div>               
                     ))}
                 </div>}
             </div>

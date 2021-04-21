@@ -54,6 +54,10 @@ const CreateGoal = () => {
         console.log(steps)
     }
 
+    const handleDeleteTag = (e, index) => {
+        setTags(tags => tags.filter((tag, i) => i !== index))
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const achieved = false
@@ -120,7 +124,10 @@ const CreateGoal = () => {
                 <p className="input-help">Press "," (comma) to add tag</p>
                 {tags.length > 0 && <div className="tag-cloud">
                     {tags.map((tag, index) => (
-                        <p className="tag" key={index}>#{tag}</p>
+                        <div className="tag-div" key={index}>
+                            <p className="tag">#{tag}</p>
+                            <i className="material-icons tag-icon" onClick={(e) => handleDeleteTag(e, index)}>delete</i>
+                    </div> 
                     ))}
                 </div>}
                 </div>

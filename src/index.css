@@ -28,7 +28,7 @@ body {
 }
 .navbar h1 {
   color: #5EAAA8;
-  font-weight: 500;
+  font-weight: 700;
 }
 .navbar .links {
   margin-left: auto;
@@ -42,8 +42,8 @@ body {
   border-radius: 12px;
 }
 .navbar .current {
-  background-color: #A3D2CA;
   color: #EB5E0B;
+  font-weight: 900;
 }
 
 /* Home Styling */
@@ -91,6 +91,9 @@ body {
   color: grey;
   font-weight: 400;
   padding: 0 8px;
+}
+.goal-tags .tag {
+  margin: 4px;
 }
 .goal-steps {
   padding: 10px;
@@ -146,7 +149,7 @@ body {
 
 /* Create Goal Styling */
 .create-goal {
-  max-width: 450px;
+  max-width: 500px;
   margin: 0 auto;
   text-align: center;
   border: 1px solid grey;
@@ -247,12 +250,29 @@ form .form-selectors {
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
 }
+.tag-cloud .tag-div {
+  display: flex;
+  margin: 4px 6px;
+  align-items: center;
+}
 .tag-cloud .tag {
   color: #5EAAA8;
-  margin: 2px;
-  padding: 4px;
+  padding: 4px 0;
   font-weight: 500;
-  
+}
+.tag-cloud .tag-icon {
+  font-size: 14px;
+  align-self: flex-end;
+  background-color: white;
+  padding: 4px;
+  color: black;
+  border-radius: 50%;
+  display: none;
+  margin-left: 2px;
+}
+.tag-div:hover .tag-icon {
+  display: inline;
+  cursor: pointer;
 }
 
 /* Not Found Styling */
