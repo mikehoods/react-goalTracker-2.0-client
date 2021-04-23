@@ -2,8 +2,8 @@
   "goals": [
     {
       "title": "Get back into writing",
-      "difficulty": "hard",
-      "priority": "medium",
+      "difficulty": "medium",
+      "priority": "high",
       "steps": [
         {
           "step": "Brainstorm blog",
@@ -11,7 +11,7 @@
         },
         {
           "step": "Start keeping journal today",
-          "complete": true
+          "complete": false
         },
         {
           "step": "Stop making excuses",
@@ -19,14 +19,13 @@
         },
         {
           "step": "Testing edit form",
-          "complete": false
+          "complete": true
         }
       ],
       "tags": [
-        "skilldevelopment",
         "writing",
-        "noexcuses",
-        "edits"
+        "justdoit",
+        "noexcuses"
       ],
       "id": 3
     },
@@ -34,11 +33,10 @@
       "title": "Finish the front end of this app",
       "difficulty": "medium",
       "priority": "high",
-      "date": "4/19/2021",
       "steps": [
         {
           "step": "Add delete button for tags and steps (on hover?)",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Add onClick to tag for filtered view by tag",
@@ -46,22 +44,21 @@
         },
         {
           "step": "CreateGoal.js submit validation for zero tags or steps (modal?)",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Set up edit goal functionality",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Add onClick strikethrough for completed goal steps",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Add auth (Auth0)",
           "complete": false
         }
       ],
-      "achieved": false,
       "tags": [
         "webdevelopment",
         "react",

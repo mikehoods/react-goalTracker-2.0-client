@@ -71,10 +71,10 @@ body {
 }
 .goal-preview:hover {
   box-shadow: 1px 3px 5px grey;
-  cursor: pointer;
 }
 .goal-link {
-  text-decoration: none;  
+  text-decoration: none;
+  cursor: pointer; 
 }
 .goal-header {
   padding: 14px;
@@ -110,7 +110,7 @@ body {
 .goal-step-number {
   width: 14px;
   color: #F8F1F1;
-  background-color: #A3D2CA;
+  background-color: #5EAAA8;
   border-radius: 50%;
   padding: 4px;
   font-size: 12px;
@@ -148,11 +148,14 @@ body {
 .goal-icons i:hover {
   color: grey;
 }
+.goal-details .goal-step-text:hover {
+  cursor: pointer;
+}
 .goal-step-check {
   color: #5EAAA8;
 }
 .goal-step-complete .goal-step-number {
-  background-color: #5EAAA8;
+  background-color: #A3D2CA;
 }
 .goal-step-complete .goal-step-text {
   text-decoration: line-through #5EAAA8;

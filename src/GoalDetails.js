@@ -1,4 +1,5 @@
 import { useParams, useHistory, Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import useFetch from "./useFetch";
 
 const GoalDetails = () => {
@@ -6,11 +7,41 @@ const GoalDetails = () => {
     const { data: goal, error, isLoading } = useFetch('http://localhost:8000/goals/' + id );
     const history = useHistory();
 
-    const handleClick = () => {
+    const [title, setTitle] = useState("");
+    const [difficulty, setDifficulty] = useState("");
+    const [priority, setPriority] = useState("");
+    const [steps, setSteps] = useState([]);
+    const [tags, setTags] = useState([]);
+
+    useEffect(() => {
+        if (goal) {
+            setTitle(goal.title)
+            setDifficulty(goal.difficulty)
+            setPriority(goal.priority)
+            setSteps(goal.steps)
+            setTags(goal.tags)
+        }
+    }, [goal])
+
+    const handleDelete = () => {
         fetch('http://localhost:8000/goals/' + goal.id, {
             method: 'DELETE'
         }).then(() => {
             history.push('/');
+        })
+    }
+
+    const handleCompleteStep = (e, index) => {
+        setSteps([...steps], steps[index].complete = !steps[index].complete)
+        console.log(steps)
+        const updatedGoal = { title, difficulty, priority, steps, tags }
+
+        fetch('http://localhost:8000/goals/' + goal.id, {
+            method: 'PUT',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedGoal)
+        }).then(() => {
+            console.log('step updated');
         })
     }
 
@@ -29,7 +60,7 @@ const GoalDetails = () => {
                             <Link to={`/edit/${goal.id}`}>
                                 <i className = "material-icons">edit</i>
                             </Link>
-                            <i className="material-icons" onClick={handleClick}>delete</i>
+                            <i className="material-icons" onClick={handleDelete}>delete</i>
                             <i className="material-icons">done</i>
                         </div> 
                     </div>
@@ -43,15 +74,14 @@ const GoalDetails = () => {
                             step.complete ?
                             <div className="goal-step goal-step-complete" key={i}>
                                 <p className="goal-step-number">{i + 1}</p>
-                                <p className="goal-step-text">{step.step}</p>
+                                <p className="goal-step-text" onClick={(e) => handleCompleteStep(e, i)}>{step.step}</p>
                                 <i className="material-icons goal-step-check">check</i> 
                             </div>
                             :
                             <div className="goal-step goal-step-incomplete" key={i}>
                                 <p className="goal-step-number">{i + 1}</p>
-                                <p className="goal-step-text">{step.step}</p> 
+                                <p className="goal-step-text" onClick={(e) => handleCompleteStep(e, i)}>{step.step}</p> 
                             </div>
-                            
                         ))}
                     </div>   
                     <div className="goal-footer">

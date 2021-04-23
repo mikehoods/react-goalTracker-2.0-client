@@ -18,9 +18,16 @@ const GoalList = ({goals, title}) => {
                     </div>}
                     <div className="goal-steps">
                         {goal.steps.map((step, i) => (
-                            <div className="goal-step" key={i}>
+                            step.complete ?
+                            <div className="goal-step goal-step-complete" key={i}>
                                 <p className="goal-step-number">{i + 1}</p>
-                                <p>{step.step}</p>
+                                <p className="goal-step-text">{step.step}</p>
+                                <i className="material-icons goal-step-check">check</i> 
+                            </div>
+                            :
+                            <div className="goal-step goal-step-incomplete" key={i}>
+                                <p className="goal-step-number">{i + 1}</p>
+                                <p className="goal-step-text">{step.step}</p> 
                             </div>
                             
                         ))}
