@@ -12,6 +12,7 @@ const GoalDetails = () => {
     const [priority, setPriority] = useState("");
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
+    const [achieved, setAchieved] = useState(null);
 
     useEffect(() => {
         if (goal) {
@@ -20,6 +21,7 @@ const GoalDetails = () => {
             setPriority(goal.priority)
             setSteps(goal.steps)
             setTags(goal.tags)
+            setAchieved(goal.achieved)
         }
     }, [goal])
 
@@ -33,8 +35,15 @@ const GoalDetails = () => {
 
     const handleCompleteStep = (e, index) => {
         setSteps([...steps], steps[index].complete = !steps[index].complete)
-        console.log(steps)
-        const updatedGoal = { title, difficulty, priority, steps, tags }
+        const checkAchievement = steps.filter(step => step.complete === false)
+
+        if (checkAchievement.length > 0) {
+            setAchieved(false)
+        } else {
+            setAchieved(true)
+        }
+
+        const updatedGoal = { title, difficulty, priority, steps, achieved, tags }
 
         fetch('http://localhost:8000/goals/' + goal.id, {
             method: 'PUT',
@@ -44,6 +53,39 @@ const GoalDetails = () => {
             console.log('step updated');
         })
     }
+
+    const handleAchieved = (e) => {
+        if (achieved) {
+            setAchieved(false)
+            setSteps([...steps], 
+                steps.map((step, i) => { 
+                    step.complete = false
+                })
+            )
+        } else {
+            setAchieved(true)
+            setSteps([...steps],
+                steps.map((step, i) => {
+                    step.complete = true
+                })
+            )
+        }
+
+        const updatedGoal = { title, difficulty, priority, steps, achieved, tags }
+
+        fetch('http://localhost:8000/goals/' + goal.id, {
+            method: 'PUT',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedGoal)
+        }).then(() => {
+            console.log('step updated');
+        })
+    }
+
+    const isAchieved = achieved ?
+    <i className="material-icons goal-achieved" onClick={handleAchieved}>done</i>
+    :
+    <i className="material-icons goal-unachieved" onClick={handleAchieved}>done</i>
 
     return (
         <div className="goal-details">
@@ -61,7 +103,7 @@ const GoalDetails = () => {
                                 <i className = "material-icons">edit</i>
                             </Link>
                             <i className="material-icons" onClick={handleDelete}>delete</i>
-                            <i className="material-icons">done</i>
+                            {isAchieved}
                         </div> 
                     </div>
                     {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
@@ -75,7 +117,7 @@ const GoalDetails = () => {
                             <div className="goal-step goal-step-complete" key={i}>
                                 <p className="goal-step-number">{i + 1}</p>
                                 <p className="goal-step-text" onClick={(e) => handleCompleteStep(e, i)}>{step.step}</p>
-                                <i className="material-icons goal-step-check">check</i> 
+                                <i className="material-icons goal-step-check">check</i>
                             </div>
                             :
                             <div className="goal-step goal-step-incomplete" key={i}>

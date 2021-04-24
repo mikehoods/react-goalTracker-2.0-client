@@ -7,21 +7,22 @@
       "steps": [
         {
           "step": "Brainstorm blog",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Start keeping journal today",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Stop making excuses",
-          "complete": false
+          "complete": true
         },
         {
-          "step": "Testing edit form",
-          "complete": true
+          "step": "Work on game story",
+          "complete": false
         }
       ],
+      "achieved": false,
       "tags": [
         "writing",
         "justdoit",
@@ -59,6 +60,7 @@
           "complete": false
         }
       ],
+      "achieved": false,
       "tags": [
         "webdevelopment",
         "react",

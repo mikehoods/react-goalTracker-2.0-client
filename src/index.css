@@ -161,6 +161,11 @@ body {
   text-decoration: line-through #5EAAA8;
   color: grey;
 }
+.goal-details .goal-achieved {
+  background-color: #5EAAA8;
+  color: #F8F1F1;
+  border-radius: 50%;
+}
 /* Create Goal Styling */
 .create-goal {
   max-width: 500px;
