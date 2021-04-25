@@ -1,7 +1,7 @@
 {
   "goals": [
     {
-      "title": "Get back into writing",
+      "title": "Get back into writing soon",
       "difficulty": "medium",
       "priority": "high",
       "steps": [
@@ -11,7 +11,7 @@
         },
         {
           "step": "Start keeping journal today",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Stop making excuses",
@@ -22,12 +22,13 @@
           "complete": true
         }
       ],
-      "achieved": false,
+      "achieved": true,
       "tags": [
         "writing",
         "justdoit",
         "noexcuses"
       ],
+      "date": "4/24/2021",
       "id": 3
     },
     {
@@ -67,6 +68,7 @@
         "frontend",
         "100daysofcode"
       ],
+      "date": "4/19/2021",
       "id": 7
     },
     {

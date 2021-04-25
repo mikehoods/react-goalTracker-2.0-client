@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 
 const GoalList = ({goals, title}) => {
+    const goalComplete = (goal) => goal.achieved === true ?
+    <i className="material-icons goal-achieved">done</i>
+    : ""
+
     return (
         <div className="goal-list">
             <h2 className="home-h2">{title}</h2>
@@ -8,7 +12,10 @@ const GoalList = ({goals, title}) => {
                 <Link to={`/goals/${goal.id}`} className="goal-link" key={index}>
                     <div className="goal-preview">
                         <div className="goal-header">
+                            <div className="goal-title">
                             <h2>{goal.title}</h2>
+                            {goalComplete(goal)}
+                            </div>
                             <h3 className="goal-date">{goal.date}</h3>
                         </div>
                         {goal.tags.length > 0 && <div className="tag-cloud goal-tags">

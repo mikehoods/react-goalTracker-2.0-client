@@ -13,6 +13,8 @@ const EditGoal = () => {
     const [tempStep, setTempStep] = useState("");
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
+    const [achieved, setAchieved] = useState(null);
+    const [date, setDate] = useState("");
 
     const [isPending, setIsPending] = useState(false);
 
@@ -38,6 +40,8 @@ const EditGoal = () => {
             setPriority(goal.priority)
             setSteps(goal.steps)
             setTags(goal.tags)
+            setAchieved(goal.achieved)
+            setDate(goal.date)
         }
     }, [goal])
 
@@ -74,7 +78,7 @@ const EditGoal = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         
-        const updatedGoal = { title, difficulty, priority, steps, tags }
+        const updatedGoal = { title, difficulty, priority, steps, tags, date, achieved }
         
         setIsPending(true);
 

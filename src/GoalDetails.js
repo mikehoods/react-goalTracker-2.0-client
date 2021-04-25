@@ -13,6 +13,7 @@ const GoalDetails = () => {
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
     const [achieved, setAchieved] = useState(null);
+    const [date, setDate] = useState("")
 
     useEffect(() => {
         if (goal) {
@@ -22,6 +23,7 @@ const GoalDetails = () => {
             setSteps(goal.steps)
             setTags(goal.tags)
             setAchieved(goal.achieved)
+            setDate(goal.date)
         }
         
     }, [goal])
@@ -51,7 +53,7 @@ const GoalDetails = () => {
     }
 
     const handleAchieved = (e) => {
-        if (achieved === true) {
+        if (achieved) {
             setAchieved(false);
             setSteps([...steps], 
                 steps.map(step => { 
@@ -68,7 +70,7 @@ const GoalDetails = () => {
         }        
     }
     const updateGoal = () => {
-        const updatedGoal = { title, difficulty, priority, steps, achieved, tags }
+        const updatedGoal = { title, difficulty, priority, steps, achieved, tags, date }
         // console.log(updatedGoal)
 
         fetch('http://localhost:8000/goals/' + goal.id, {
