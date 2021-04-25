@@ -11,7 +11,7 @@
         },
         {
           "step": "Start keeping journal today",
-          "complete": true
+          "complete": false
         },
         {
           "step": "Stop making excuses",
@@ -19,7 +19,7 @@
         },
         {
           "step": "Work on game story",
-          "complete": false
+          "complete": true
         }
       ],
       "achieved": false,

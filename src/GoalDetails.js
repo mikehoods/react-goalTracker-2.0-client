@@ -23,7 +23,13 @@ const GoalDetails = () => {
             setTags(goal.tags)
             setAchieved(goal.achieved)
         }
+        
     }, [goal])
+
+    useEffect(() => {
+        if (achieved !== null) 
+        updateGoal()
+    }, [achieved])
 
     const handleDelete = () => {
         fetch('http://localhost:8000/goals/' + goal.id, {
@@ -36,49 +42,41 @@ const GoalDetails = () => {
     const handleCompleteStep = (e, index) => {
         setSteps([...steps], steps[index].complete = !steps[index].complete)
         const checkAchievement = steps.filter(step => step.complete === false)
-
         if (checkAchievement.length > 0) {
             setAchieved(false)
         } else {
             setAchieved(true)
         }
-
-        const updatedGoal = { title, difficulty, priority, steps, achieved, tags }
-
-        fetch('http://localhost:8000/goals/' + goal.id, {
-            method: 'PUT',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(updatedGoal)
-        }).then(() => {
-            console.log('step updated');
-        })
+        updateGoal()
     }
 
     const handleAchieved = (e) => {
-        if (achieved) {
-            setAchieved(false)
+        if (achieved === true) {
+            setAchieved(false);
             setSteps([...steps], 
-                steps.map((step, i) => { 
+                steps.map(step => { 
                     step.complete = false
                 })
             )
         } else {
             setAchieved(true)
             setSteps([...steps],
-                steps.map((step, i) => {
+                steps.map(step => {
                     step.complete = true
                 })
             )
-        }
-
+        }        
+    }
+    const updateGoal = () => {
         const updatedGoal = { title, difficulty, priority, steps, achieved, tags }
+        // console.log(updatedGoal)
 
         fetch('http://localhost:8000/goals/' + goal.id, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedGoal)
         }).then(() => {
-            console.log('step updated');
+            console.log('goal updated');
         })
     }
 
