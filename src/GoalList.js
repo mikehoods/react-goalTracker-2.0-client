@@ -12,12 +12,18 @@ const GoalList = ({goals, title}) => {
 
     return (
         <div className="goal-list">
-            <h2 className="home-h2">{listHeader}</h2>
-            {filteredGoals !== goals && <button onClick={() => {
-                setFilteredGoals(goals)
-                setListHeader('All Your Current Goals')
-                }}
-                >Clear filters</button>}
+            <div className="goal-list-header">
+                <h2>{listHeader}</h2>
+                {filteredGoals !== goals && 
+                    <button
+                        className="clear-button" 
+                        onClick={() => {
+                            setFilteredGoals(goals)
+                            setListHeader('All Your Current Goals')
+                        }}
+                    >Clear filters</button>}
+                </div>
+            {/* List of all or filtered goals */}
             {goals && filteredGoals.map((goal, index) => (
                 <div className="goal-preview" key={index}>
                     <div className="goal-header">
@@ -35,7 +41,7 @@ const GoalList = ({goals, title}) => {
                                 key={index} 
                                 onClick={() => {
                                     setFilteredGoals(goals.filter(goal => goal.tags.includes(tag)))
-                                    setListHeader(`Goals with tag: #${tag}`)
+                                    setListHeader(`Filtered goals (#${tag})`)
                                 }
                                 }>#{tag}</p>
                         ))}
@@ -58,12 +64,20 @@ const GoalList = ({goals, title}) => {
                     </div>
                         <div className="goal-footer">
                             <p>Priority: 
-                                <span className="footer-span">
+                                <span className="footer-span" 
+                                    onClick={() => {
+                                    setFilteredGoals(goals.filter(g => g.priority === goal.priority))
+                                    setListHeader(`Filtered goals (Priority: ${goal.priority})`)
+                                }}>
                                     {goal.priority}
                                 </span>
                             </p>
                             <p>Difficulty:
-                                <span className="footer-span">
+                                <span className="footer-span"
+                                    onClick={() => {
+                                        setFilteredGoals(goals.filter(g => g.difficulty === goal.difficulty))
+                                        setListHeader(`Filtered goals (Difficulty: ${goal.difficulty})`)
+                                    }}>
                                     {goal.difficulty}
                                 </span>
                             </p>

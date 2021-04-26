@@ -3,7 +3,7 @@
     {
       "title": "Get back into writing soon",
       "difficulty": "medium",
-      "priority": "high",
+      "priority": "low",
       "steps": [
         {
           "step": "Brainstorm blog",
@@ -75,11 +75,10 @@
       "title": "Testing style",
       "difficulty": "easy",
       "priority": "low",
-      "date": "4/19/2021",
       "steps": [
         {
           "step": "Fix readability issues",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Redesign navbar",
@@ -97,6 +96,7 @@
         "css",
         "webdevelopment"
       ],
+      "date": "4/19/2021",
       "id": 8
     },
     {

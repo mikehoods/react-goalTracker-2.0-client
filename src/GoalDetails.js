@@ -127,8 +127,16 @@ const GoalDetails = () => {
                         ))}
                     </div>   
                     <div className="goal-footer">
-                        <p>Priority: {goal.priority}</p>
-                        <p>Difficulty: {goal.difficulty}</p>
+                        <p>Priority: 
+                            <span className="footer-span"> 
+                                {goal.priority}
+                            </span>
+                        </p>
+                        <p>Difficulty: 
+                            <span className="footer-span">
+                                {goal.difficulty}
+                            </span>
+                        </p>
                     </div>
                 </div>
             )}
