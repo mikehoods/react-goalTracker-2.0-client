@@ -105,6 +105,7 @@ body {
 }
 .goal-tags .tag {
   margin: 4px;
+  cursor: pointer;
 }
 .goal-steps {
   padding: 10px;
