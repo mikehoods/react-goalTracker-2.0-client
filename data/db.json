@@ -20,6 +20,10 @@
         {
           "step": "Work on game story",
           "complete": true
+        },
+        {
+          "step": "Read more",
+          "complete": true
         }
       ],
       "achieved": true,

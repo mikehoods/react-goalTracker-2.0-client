@@ -33,7 +33,11 @@ const GoalList = ({goals, title}) => {
                             </Link>
                             {goalComplete(goal)}
                         </div>
-                            <h3 className="goal-date">{goal.date}</h3>
+                            <h3 className="goal-date"
+                                onClick={() => {
+                                    setFilteredGoals(goals.filter(g => g.date === goal.date))
+                                    setListHeader(`Filtered goals (${goal.date})`)
+                                }}>{goal.date}</h3>
                         </div>
                         {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
                         {goal.tags.map((tag, index) => (

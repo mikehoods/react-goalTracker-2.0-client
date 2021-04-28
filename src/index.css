@@ -100,6 +100,9 @@ body {
   font-weight: 400;
   padding: 0 8px;
 }
+.goal-list .goal-date {
+  cursor: pointer;
+}
 .goal-list .goal-achieved {
   background-color: #5EAAA8;
   color: #F8F1F1;
@@ -153,7 +156,6 @@ body {
 .goal-list .footer-span {
   cursor: pointer;
 }
-
 /* Goal Details Styling */
 .goal-details .goal-header {
   display: flex;
