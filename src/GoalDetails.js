@@ -71,7 +71,6 @@ const GoalDetails = () => {
     }
     const updateGoal = () => {
         const updatedGoal = { title, difficulty, priority, steps, achieved, tags, date }
-        // console.log(updatedGoal)
 
         fetch('http://localhost:8000/goals/' + goal.id, {
             method: 'PUT',

@@ -1,41 +1,6 @@
 {
   "goals": [
     {
-      "title": "Get back into writing soon",
-      "difficulty": "medium",
-      "priority": "low",
-      "steps": [
-        {
-          "step": "Brainstorm blog",
-          "complete": true
-        },
-        {
-          "step": "Start keeping journal today",
-          "complete": true
-        },
-        {
-          "step": "Stop making excuses",
-          "complete": true
-        },
-        {
-          "step": "Work on game story",
-          "complete": true
-        },
-        {
-          "step": "Read more",
-          "complete": true
-        }
-      ],
-      "achieved": true,
-      "tags": [
-        "writing",
-        "justdoit",
-        "noexcuses"
-      ],
-      "date": "4/24/2021",
-      "id": 3
-    },
-    {
       "title": "Finish the front end of this app",
       "difficulty": "medium",
       "priority": "high",
@@ -46,7 +11,7 @@
         },
         {
           "step": "Add onClick to tag for filtered view by tag",
-          "complete": false
+          "complete": true
         },
         {
           "step": "CreateGoal.js submit validation for zero tags or steps (modal?)",
@@ -107,24 +72,56 @@
       "title": "Testing No Tags",
       "difficulty": "easy",
       "priority": "low",
-      "date": "4/20/2021",
       "steps": [
         {
           "step": "How does this look with no tags",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Should I require at least one tag",
-          "complete": false
+          "complete": true
         },
         {
           "step": "Is that too demanding",
+          "complete": true
+        }
+      ],
+      "achieved": true,
+      "tags": [],
+      "date": "4/20/2021",
+      "id": 9
+    },
+    {
+      "title": "Create Express backend for app",
+      "difficulty": "easy",
+      "priority": "high",
+      "steps": [
+        {
+          "step": "Update goal/task model",
+          "complete": false
+        },
+        {
+          "step": "Setup routes",
+          "complete": false
+        },
+        {
+          "step": "Integrate auth",
+          "complete": false
+        },
+        {
+          "step": "Link with frontend",
           "complete": false
         }
       ],
       "achieved": false,
-      "tags": [],
-      "id": 9
+      "tags": [
+        "webdevelopment",
+        "express",
+        "coding",
+        "backend"
+      ],
+      "date": "4/28/2021",
+      "id": 10
     }
   ]
 }

@@ -20,8 +20,8 @@ body {
   align-items: center;
   max-width: 100vw;
   background-color: #F8F1F1;
-  position: fixed;
-  top: 0;
+  /* position: fixed;
+  top: 0; */
   width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid grey;
@@ -52,7 +52,7 @@ body {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
-  margin-top: 9vh;
+  /* margin-top: 9vh; */
 }
 
 /* Goal List Styling */
@@ -107,7 +107,7 @@ body {
   background-color: #5EAAA8;
   color: #F8F1F1;
   border-radius: 50%;
-  padding: 4px;
+  padding: 2px;
 }
 .goal-tags .tag {
   margin: 4px;
@@ -163,12 +163,15 @@ body {
   align-items: top;
 }
 .goal-icons i {
+  margin: 2px;
   padding: 4px;
   cursor: pointer;
   color: grey;
+  border-radius: 50%;
 }
 .goal-icons i:hover {
-  color: grey;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+  color: #EB5E0B;
 }
 .goal-details .goal-step-text:hover {
   cursor: pointer;
@@ -186,7 +189,10 @@ body {
 .goal-details .goal-achieved {
   background-color: #5EAAA8;
   color: #F8F1F1;
-  border-radius: 50%;
+}
+.goal-details .goal-achieved:hover {
+  background-color: white;
+  /* color: #5EAAA8; */
 }
 /* Create Goal Styling */
 .create-goal {
