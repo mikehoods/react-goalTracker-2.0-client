@@ -28,7 +28,7 @@ const GoalList = ({goals, title}) => {
                 <div className="goal-preview" key={index}>
                     <div className="goal-header">
                         <div className="goal-title">
-                            <Link to={`/goals/${goal.id}`} className="goal-link">
+                            <Link to={`/goals/${goal._id}`} className="goal-link">
                                 <h2>{goal.title}</h2>
                             </Link>
                             {goalComplete(goal)}

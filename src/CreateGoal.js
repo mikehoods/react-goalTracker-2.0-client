@@ -62,11 +62,12 @@ const CreateGoal = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const achieved = false
-        const goal = { title, difficulty, priority, steps, achieved, tags }
+        const username = "mhood82@gmail.com"
+        const goal = { title, difficulty, priority, steps, achieved, tags, username }
         
         setIsPending(true);
 
-        fetch('http://localhost:8000/goals', {
+        fetch('https://much-to-do.herokuapp.com/todos/', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(goal)

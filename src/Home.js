@@ -2,7 +2,7 @@ import GoalList from './GoalList';
 import useFetch from './useFetch';
 
 const Home = () => {
-    const { data: goals, isLoading, error } = useFetch('http://localhost:8000/goals')
+    const { data: goals, isLoading, error } = useFetch('https://much-to-do.herokuapp.com/todos')
 
     return (
         <div className='home'>

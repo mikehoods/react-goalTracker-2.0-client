@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 
 const GoalDetails = () => {
     const { id } = useParams();
-    const { data: goal, error, isLoading } = useFetch('http://localhost:8000/goals/' + id );
+    const { data: goal, error, isLoading } = useFetch('https://much-to-do.herokuapp.com/todos/' + id );
     const history = useHistory();
 
     const [title, setTitle] = useState("");
@@ -13,7 +13,7 @@ const GoalDetails = () => {
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
     const [achieved, setAchieved] = useState(null);
-    const [date, setDate] = useState("")
+    // const [date, setDate] = useState("")
 
     useEffect(() => {
         if (goal) {
@@ -23,7 +23,6 @@ const GoalDetails = () => {
             setSteps(goal.steps)
             setTags(goal.tags)
             setAchieved(goal.achieved)
-            setDate(goal.date)
         }
         
     }, [goal])
@@ -34,7 +33,7 @@ const GoalDetails = () => {
     }, [achieved])
 
     const handleDelete = () => {
-        fetch('http://localhost:8000/goals/' + goal.id, {
+        fetch('https://much-to-do.herokuapp.com/todos/' + goal._id, {
             method: 'DELETE'
         }).then(() => {
             history.push('/');
@@ -70,9 +69,9 @@ const GoalDetails = () => {
         }        
     }
     const updateGoal = () => {
-        const updatedGoal = { title, difficulty, priority, steps, achieved, tags, date }
+        const updatedGoal = { title, difficulty, priority, steps, achieved, tags }
 
-        fetch('http://localhost:8000/goals/' + goal.id, {
+        fetch('https://much-to-do.herokuapp.com/todos/' + goal._id, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedGoal)
@@ -98,7 +97,7 @@ const GoalDetails = () => {
                             <h3 className="goal-date">{goal.date}</h3>
                         </div>
                         <div className="goal-icons">
-                            <Link to={`/edit/${goal.id}`}>
+                            <Link to={`/edit/${goal._id}`}>
                                 <i className = "material-icons">edit</i>
                             </Link>
                             <i className="material-icons" onClick={handleDelete}>delete</i>

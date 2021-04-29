@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 
 const EditGoal = () => {
     const { id } = useParams();
-    const { data: goal, error, isLoading } = useFetch('http://localhost:8000/goals/' + id );
+    const { data: goal, error, isLoading } = useFetch('https://much-to-do.herokuapp.com/todos/' + id );
     const history = useHistory();
 
     const [title, setTitle] = useState("");
@@ -82,14 +82,14 @@ const EditGoal = () => {
         
         setIsPending(true);
 
-        fetch('http://localhost:8000/goals/' + goal.id, {
+        fetch('https://much-to-do.herokuapp.com/todos/' + goal._id, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedGoal)
         }).then(() => {
             console.log('goal updated');
             setIsPending(false);
-            history.push('/goals/' + goal.id);
+            history.push('/goals/' + goal._id);
         })
     }
 
