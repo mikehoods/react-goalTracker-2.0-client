@@ -13,7 +13,14 @@ const GoalDetails = () => {
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
     const [achieved, setAchieved] = useState(null);
-    // const [date, setDate] = useState("")
+
+    const formatDate = (date) => {
+        date = new Date(date);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${month}/${day}/${year}`
+    }
 
     useEffect(() => {
         if (goal) {
@@ -94,7 +101,7 @@ const GoalDetails = () => {
                     <div className="goal-header">
                         <div>
                             <h2>{goal.title}</h2>
-                            <h3 className="goal-date">{goal.date}</h3>
+                            <h3 className="goal-date">{formatDate(goal.createdAt)}</h3>
                         </div>
                         <div className="goal-icons">
                             <Link to={`/edit/${goal._id}`}>
