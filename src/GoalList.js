@@ -10,6 +10,14 @@ const GoalList = ({goals, title}) => {
     <i className="material-icons goal-achieved">done</i>
     : ""
 
+    const formatDate = (date) => {
+        date = new Date(date);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${month}/${day}/${year}`
+    }
+
     return (
         <div className="goal-list">
             <div className="goal-list-header">
@@ -37,7 +45,7 @@ const GoalList = ({goals, title}) => {
                                 onClick={() => {
                                     setFilteredGoals(goals.filter(g => g.date === goal.date))
                                     setListHeader(`Filtered goals (${goal.date})`)
-                                }}>{goal.date}</h3>
+                                }}>{formatDate(goal.createdAt)}</h3>
                         </div>
                         {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
                         {goal.tags.map((tag, index) => (
