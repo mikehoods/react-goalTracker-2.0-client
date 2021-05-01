@@ -43,8 +43,8 @@ const GoalList = ({goals, title}) => {
                         </div>
                             <h3 className="goal-date"
                                 onClick={() => {
-                                    setFilteredGoals(goals.filter(g => g.date === goal.date))
-                                    setListHeader(`Filtered goals (${goal.date})`)
+                                    setFilteredGoals(goals.filter(g => formatDate(g.createdAt) === formatDate(goal.createdAt)))
+                                    setListHeader(`Filtered goals (${formatDate(goal.createdAt)})`)
                                 }}>{formatDate(goal.createdAt)}</h3>
                         </div>
                         {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
