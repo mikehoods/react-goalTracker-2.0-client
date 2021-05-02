@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import LoginButton from './Auth0/LoginButton';
+import Logout from './Auth0/LogoutButton';
 
 const Navbar = () => {
     return (
@@ -6,13 +8,12 @@ const Navbar = () => {
             <h1>Much To Do</h1>
             <div className="links">
                 <div className="login-div">
-                    <p>Login</p>
-                    <p>Signup</p>
+                    <LoginButton />
                 </div>
                 <div className="logged-in-div">
                     <NavLink to="/" exact activeClassName="current">Home</NavLink>
                     <NavLink to="/create" exact activeClassName="current">+ New Goal</NavLink>
-                    <p>Logout</p>
+                    <Logout />
                 </div>
                 
             </div>
