@@ -1,4 +1,5 @@
 import GoalList from './GoalList';
+import TagCloud from './TagCloud';
 import useFetch from './useFetch';
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
 
                 {/* Conditionally render isLoading or GoalList */}
                 { isLoading && <div>"Loading..."</div> }
-                { goals && <GoalList goals={goals} />} 
+                { goals && <TagCloud goals={goals} />}
+                { goals && <GoalList goals={goals} />}
         </div>
     );
 }

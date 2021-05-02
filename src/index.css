@@ -78,8 +78,17 @@ body {
 
 .content {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 30px auto;
   padding: 20px;
+}
+
+/* Tag Cloud Styling */
+.tag-container{
+  margin-bottom: 18px;
+}
+.tag-container p{
+  color: #F8F1F1;
+  padding: 6px;
 }
 
 /* Goal List Styling */

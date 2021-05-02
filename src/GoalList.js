@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-const GoalList = ({goals, title}) => {
+const GoalList = ({goals}) => {
 
     const [filteredGoals, setFilteredGoals] = useState(goals)
     const [listHeader, setListHeader] = useState('All Your Current Goals')
