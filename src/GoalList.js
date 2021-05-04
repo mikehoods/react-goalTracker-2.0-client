@@ -22,7 +22,7 @@ const GoalList = ({goals}) => {
         <div className="goal-list">
             <div className="goal-list-header">
                 <h2>{listHeader}</h2>
-                {filteredGoals !== goals && 
+                {filteredGoals.length !== goals.length && 
                     <button
                         className="clear-button" 
                         onClick={() => {
