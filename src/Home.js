@@ -3,10 +3,15 @@ import GoalList from './GoalList';
 import TagCloud from './TagCloud';
 import useFetch from './useFetch';
 import { useAuth0 } from '@auth0/auth0-react';
+import { useEffect } from 'react'
 
 const Home = () => {
     const { data: goals, isLoading, error } = useFetch('https://much-to-do.herokuapp.com/todos')
     const { user, isAuthenticated } = useAuth0();
+
+    useEffect(() => {
+        console.log(user)
+    }, [user])
 
     return (
         <div className='home'>
@@ -19,10 +24,11 @@ const Home = () => {
                     { error && <div>{ error }</div> }
 
                     {/* Conditionally render isLoading or GoalList */}
-                    { user && <h2>Welcome {user.name}</h2> }
+                    { user && <h2>Welcome {user.given_name}</h2> }
                     { isLoading && <div>"Loading..."</div> }
-                    { goals && <TagCloud goals={goals} />}
                     { goals && <GoalList goals={goals} />}
+                    { goals && <TagCloud goals={goals} />}
+                    
                 </div>}
                 
         </div>
