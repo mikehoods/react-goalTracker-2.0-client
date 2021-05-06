@@ -4,7 +4,7 @@ import { useState } from 'react';
 const GoalList = ({goals}) => {
 
     const [filteredGoals, setFilteredGoals] = useState(goals)
-    const [listHeader, setListHeader] = useState('All Your Current Goals')
+    const [listHeader, setListHeader] = useState('All Current Goals')
 
     const goalComplete = (goal) => goal.achieved === true ?
     <i className="material-icons goal-achieved">done</i>
@@ -22,15 +22,15 @@ const GoalList = ({goals}) => {
         <div className="goal-list">
             <div className="goal-list-header">
                 <h2>{listHeader}</h2>
-                {filteredGoals.length !== goals.length && 
-                    <button
-                        className="clear-button" 
-                        onClick={() => {
-                            setFilteredGoals(goals)
-                            setListHeader('All Your Current Goals')
-                        }}
-                    >Clear filters</button>}
-                </div>
+                {filteredGoals !== goals && 
+                <button
+                    className="clear-button" 
+                    onClick={() => {
+                        setFilteredGoals(goals)
+                        setListHeader('All Current Goals')
+                }}
+                >Clear filters</button>}
+            </div>
             {/* List of all or filtered goals */}
             {goals && filteredGoals.map((goal, index) => (
                 <div className="goal-preview" key={index}>

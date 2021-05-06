@@ -21,8 +21,8 @@ const TagCloud = ({ goals }) => {
     return (
         <div className="tag-container">
             <div className="tag-cloud">
-            {goals.length > 0 && userTags.map(tag => (
-                <p>#{tag}</p>
+            {goals.length > 0 && userTags.map((tag, index) => (
+                <p key={index}>#{tag}</p>
             ))}
         </div>
         </div>

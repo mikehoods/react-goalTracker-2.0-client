@@ -24,7 +24,7 @@ const Home = () => {
                     { error && <div>{ error }</div> }
 
                     {/* Conditionally render isLoading or GoalList */}
-                    { user && <h2>Welcome {user.given_name}</h2> }
+                    {/* { user && <h2 className="user-greeting">Greetings {user.given_name}</h2> } */}
                     { isLoading && <div>"Loading..."</div> }
                     { goals && <GoalList goals={goals} />}
                     { goals && <TagCloud goals={goals} />}

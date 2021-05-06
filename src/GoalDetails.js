@@ -146,6 +146,7 @@ const GoalDetails = () => {
                 </div>
             )}
         </div>
+        
     );
 }
  

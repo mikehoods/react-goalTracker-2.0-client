@@ -68,8 +68,12 @@ body {
 
 .content {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 20px auto;
   padding: 20px;
+}
+.user-greeting{
+  margin-bottom: 20px;
+  font-weight: 400;
 }
 
 /* Tag Cloud Styling */
@@ -80,7 +84,29 @@ body {
   color: #F8F1F1;
   padding: 6px;
 }
-
+/* Welcome Page Styling */
+.welcome-div h1{
+  font-size: 40px;
+}
+.welcome-div h3{
+  margin: 24px 0;
+  font-weight: 300;
+  text-align: center;
+}
+.welcome-div h2{
+  font-weight: 500;
+  text-align: right;
+}
+.welcome-title, .welcome-login{
+  color: #EB5E0B;
+}
+.welcome-login{
+  font-weight: 700;
+  text-decoration: #F8F1F1 underline;
+}
+.welcome-login:hover{
+  cursor: pointer;
+}
 /* Goal List Styling */
 
 .goal-list-header {
