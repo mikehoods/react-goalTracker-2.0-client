@@ -3,15 +3,19 @@ import GoalList from './GoalList';
 import TagCloud from './TagCloud';
 import useFetch from './useFetch';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const Home = () => {
-    const { data: goals, isLoading, error } = useFetch('https://much-to-do.herokuapp.com/todos')
+    const { data, isLoading, error } = useFetch('https://much-to-do.herokuapp.com/todos')
     const { user, isAuthenticated } = useAuth0();
+    const [goals, setGoals] = useState(null);
 
     useEffect(() => {
         console.log(user)
-    }, [user])
+        if (data && user) {
+            setGoals(data.filter(item => item.username === user.email))
+        }
+    }, [data, user])
 
     return (
         <div className='home'>

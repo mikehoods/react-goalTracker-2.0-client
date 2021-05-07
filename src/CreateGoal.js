@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { withAuthenticationRequired } from '@auth0/auth0-react';
+import { withAuthenticationRequired, useAuth0 } from '@auth0/auth0-react';
 
 const CreateGoal = () => {
     const [title, setTitle] = useState("");
@@ -9,9 +9,11 @@ const CreateGoal = () => {
     const [tempStep, setTempStep] = useState("");
     const [steps, setSteps] = useState([{"step": "", "complete": false}]);
     const [tags, setTags] = useState([]);
+    // const [username, setUsername] = useState("");
 
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
+    const { user } = useAuth0();
 
     const handleAddTag = (e) => {
         const currentTag = e.target.value.replace(/[, ]+/g, "").trim()
@@ -60,10 +62,10 @@ const CreateGoal = () => {
         setTags(tags => tags.filter((tag, i) => i !== index))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const achieved = false
-        const username = "mhood82@gmail.com"
+        const username = await user.email
         const goal = { title, difficulty, priority, steps, achieved, tags, username }
         
         setIsPending(true);
