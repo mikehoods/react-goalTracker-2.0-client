@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from "react-router-dom";
 import useFetch from "./useFetch";
+import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 const EditGoal = () => {
     const { id } = useParams();
@@ -158,4 +159,6 @@ const EditGoal = () => {
     )
 }
  
-export default EditGoal;
+export default withAuthenticationRequired(EditGoal, {
+    onRedirecting: () => (<div>Redirecting to the login page...</div>)
+});

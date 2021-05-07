@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 const CreateGoal = () => {
     const [title, setTitle] = useState("");
@@ -142,4 +143,6 @@ const CreateGoal = () => {
     );
 }
  
-export default CreateGoal;
+export default withAuthenticationRequired(CreateGoal, {
+    onRedirecting: () => (<div>Redirecting to the login page...</div>)
+});

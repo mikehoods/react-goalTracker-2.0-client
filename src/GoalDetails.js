@@ -1,6 +1,7 @@
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import useFetch from "./useFetch";
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 const GoalDetails = () => {
     const { id } = useParams();
@@ -150,4 +151,6 @@ const GoalDetails = () => {
     );
 }
  
-export default GoalDetails;
+export default withAuthenticationRequired(GoalDetails, {
+    onRedirecting: () => (<div>Redirecting to the login page...</div>)
+});
