@@ -377,6 +377,38 @@ form .form-selectors {
   font-weight: 800;
 }
 
+/* Loading Animation */
+.bouncer{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+.bouncer div{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #EB5E0B;
+  animation: bouncer 0.5s cubic-bezier(.19, .57, .3, .98) infinite alternate;
+}
+.bouncer div:nth-child(2){
+  animation-delay: 0.1s;
+  opacity: 0.8;
+}
+.bouncer div:nth-child(3){
+  animation-delay: 0.2s;
+  opacity: 0.6;
+}
+.bouncer div:nth-child(4){
+  animation-delay: 0.3s;
+  opacity: 0.4;
+}
+@keyframes bouncer{
+  from { transform: translateY(0) }
+  to { transform: translateY(-60px)}
+}
 /* Not Found Styling */
 .not-found {
   border: 1px solid grey;

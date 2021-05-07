@@ -1,6 +1,7 @@
 import Welcome from './Welcome';
 import GoalList from './GoalList';
 import TagCloud from './TagCloud';
+import Loading from './Loading';
 import useFetch from './useFetch';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from 'react'
@@ -29,7 +30,7 @@ const Home = () => {
 
                     {/* Conditionally render isLoading or GoalList */}
                     {/* { user && <h2 className="user-greeting">Greetings {user.given_name}</h2> } */}
-                    { isLoading && <div>"Loading..."</div> }
+                    { isLoading && <Loading /> }
                     { goals && <GoalList goals={goals} />}
                     { goals && <TagCloud goals={goals} />}
                     
