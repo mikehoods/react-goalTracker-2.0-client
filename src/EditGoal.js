@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useHistory } from "react-router-dom";
 import useFetch from "./useFetch";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
+import Loading from './Loading';
 
 const EditGoal = () => {
     const { id } = useParams();
@@ -152,7 +153,7 @@ const EditGoal = () => {
             
             <div className="create-goal-footer">
                 {!isPending && <button>Edit Goal</button>}
-                {isPending && <button disabled>Editing goal...</button>}
+                {isPending && <Loading />}
             </div>
         </form>
     </div>

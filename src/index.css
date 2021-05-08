@@ -382,13 +382,13 @@ form .form-selectors {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin: 0 auto;
 }
 .bouncer div{
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background-color: #EB5E0B;
   animation: bouncer 0.5s cubic-bezier(.19, .57, .3, .98) infinite alternate;
@@ -407,7 +407,7 @@ form .form-selectors {
 }
 @keyframes bouncer{
   from { transform: translateY(0) }
-  to { transform: translateY(-60px)}
+  to { transform: translateY(-50px)}
 }
 /* Not Found Styling */
 .not-found {

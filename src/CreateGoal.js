@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { withAuthenticationRequired, useAuth0 } from '@auth0/auth0-react';
+import Loading from './Loading';
 
 const CreateGoal = () => {
     const [title, setTitle] = useState("");
@@ -138,7 +139,7 @@ const CreateGoal = () => {
                 </div>
                 <div className="create-goal-footer">
                     {!isPending && <button>Create Goal</button>}
-                    {isPending && <button disabled>Adding goal...</button>}
+                    {isPending && <Loading />}
                 </div>
             </form>
         </div>
