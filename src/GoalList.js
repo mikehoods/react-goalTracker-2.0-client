@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const GoalList = ({goals, handleFilter}) => {
     const goalComplete = (goal) => goal.achieved === true ?
-    <i className="material-icons goal-achieved">done</i>
+    <i className="material-icons goal-achieved">check_circle</i>
     : ""
 
     const formatDate = (date) => {

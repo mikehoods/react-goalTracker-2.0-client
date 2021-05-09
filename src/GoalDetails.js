@@ -89,7 +89,7 @@ const GoalDetails = () => {
     }
 
     const isAchieved = achieved ?
-    <i className="material-icons goal-achieved" onClick={handleAchieved}>done</i>
+    <i className="material-icons goal-achieved" onClick={handleAchieved}>check_circle</i>
     :
     <i className="material-icons goal-unachieved" onClick={handleAchieved}>done</i>
 
@@ -106,7 +106,7 @@ const GoalDetails = () => {
                         </div>
                         <div className="goal-icons">
                             <Link to={`/edit/${goal._id}`}>
-                                <i className = "material-icons">edit</i>
+                                <i className = "material-icons">edit_note</i>
                             </Link>
                             <i className="material-icons" onClick={handleDelete}>delete</i>
                             {isAchieved}

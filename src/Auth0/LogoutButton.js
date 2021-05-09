@@ -5,7 +5,11 @@ const LogoutButton = () => {
 
     return (
         <div className="logoutButton-div">
-            { isAuthenticated && <button onClick={() => logout({ returnTo: window.location.origin })}>Log out</button>}
+            { isAuthenticated && 
+            <button 
+                onClick={() => logout({ returnTo: window.location.origin })}>
+                <i className="material-icons">logout</i>
+            </button>}
         </div>
     );
 }

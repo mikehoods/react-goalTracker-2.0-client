@@ -10,8 +10,8 @@ const Navbar = () => {
         <nav className="navbar">
             <h1>Much To Do</h1>
             <div className="links">
-                <NavLink to="/" exact activeClassName="current">Home</NavLink>
-                { isAuthenticated && <NavLink to="/create" exact activeClassName="current">+ New Goal</NavLink> }
+                <NavLink to="/" exact activeClassName="current"><i className="material-icons">home</i></NavLink>
+                { isAuthenticated && <NavLink to="/create" exact activeClassName="current"><i className="material-icons">post_add</i></NavLink> }
                 { isAuthenticated && <Logout /> }
                 { !isAuthenticated && <LoginButton /> }               
             </div>

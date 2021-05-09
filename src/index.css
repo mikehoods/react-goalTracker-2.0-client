@@ -155,12 +155,6 @@ body {
 .goal-list .goal-date {
   cursor: pointer;
 }
-.goal-list .goal-achieved {
-  background-color: #5EAAA8;
-  color: #F8F1F1;
-  border-radius: 50%;
-  padding: 2px;
-}
 .goal-tags .tag {
   margin: 4px;
 }
@@ -238,13 +232,8 @@ body {
   text-decoration: line-through #5EAAA8;
   color: grey;
 }
-.goal-details .goal-achieved {
-  background-color: #5EAAA8;
-  color: #F8F1F1;
-}
-.goal-details .goal-achieved:hover {
-  background-color: white;
-  /* color: #5EAAA8; */
+.goal-achieved{
+  color: #5EAAA8;
 }
 /* Create Goal Styling */
 .create-goal {

@@ -5,7 +5,7 @@ const LoginButton = () => {
 
     return (
         <div className="loginButton-div">
-            { !isAuthenticated && <button onClick={loginWithRedirect}>Log in</button>}
+            { !isAuthenticated && <button onClick={loginWithRedirect}><i className="material-icons">login</i></button>}
         </div>
     );
 }
