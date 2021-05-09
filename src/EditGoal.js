@@ -16,7 +16,6 @@ const EditGoal = () => {
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
     const [achieved, setAchieved] = useState(null);
-    const [date, setDate] = useState("");
 
     const [isPending, setIsPending] = useState(false);
 
@@ -43,7 +42,6 @@ const EditGoal = () => {
             setSteps(goal.steps)
             setTags(goal.tags)
             setAchieved(goal.achieved)
-            setDate(goal.date)
         }
     }, [goal])
 
@@ -72,16 +70,12 @@ const EditGoal = () => {
     const handleDeleteTag = (e, index) => {
         setTags(tags => tags.filter((tag, i) => i !== index))
     }
-
     const handleStepChange = (e, index) => {
         setSteps([...steps], steps[index].step = e.target.value)
     }
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        
-        const updatedGoal = { title, difficulty, priority, steps, tags, date, achieved }
-        
+        const updatedGoal = { title, difficulty, priority, steps, tags, achieved }
         setIsPending(true);
 
         fetch('https://much-to-do.herokuapp.com/todos/' + goal._id, {
