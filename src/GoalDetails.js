@@ -36,8 +36,10 @@ const GoalDetails = () => {
     }, [goal])
 
     useEffect(() => {
-        if (achieved !== null) 
-        updateGoal()
+        if (achieved !== null) {
+            updateGoal()
+        }
+        
     }, [achieved])
 
     const handleDelete = () => {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const GoalList = ({goals, handleFilter}) => {
-    const goalComplete = (goal) => goal.achieved === true ?
+    const goalComplete = (goal) => goal.achieved ?
     <i className="material-icons goal-achieved">check_circle</i>
     : ""
 
@@ -25,14 +25,14 @@ const GoalList = ({goals, handleFilter}) => {
                             </Link>
                             {goalComplete(goal)}
                         </div>
-                            <h3 className="goal-date"
-                                onClick={() => {handleFilter(goals.filter(
-                                    g => formatDate(g.createdAt) === formatDate(goal.createdAt)), 
-                                    `Filtered goals (${formatDate(goal.createdAt)})`
-                                    )
-                                }}>{formatDate(goal.createdAt)}</h3>
-                        </div>
-                        {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
+                        <h3 className="goal-date"
+                            onClick={() => {handleFilter(goals.filter(
+                                g => formatDate(g.createdAt) === formatDate(goal.createdAt)), 
+                                `Filtered goals (${formatDate(goal.createdAt)})`
+                                )
+                            }}>{formatDate(goal.createdAt)}</h3>
+                    </div>
+                    {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
                         {goal.tags.map((tag, index) => (
                             <p className="tag" 
                                 key={index} 
@@ -40,8 +40,8 @@ const GoalList = ({goals, handleFilter}) => {
                                     goals.filter(goal => goal.tags.includes(tag)),
                                     `Filtered goals (#${tag})`
                                     )
-                                }
-                                }>#{tag}</p>
+                                }}>#{tag}
+                            </p>
                         ))}
                     </div>}
                     <div className="goal-steps">
@@ -67,8 +67,7 @@ const GoalList = ({goals, handleFilter}) => {
                                         goals.filter(g => g.priority === goal.priority), 
                                         `Filtered goals (Priority: ${goal.priority})`
                                         )
-                                }}>
-                                    {goal.priority}
+                                }}>{goal.priority}
                                 </span>
                             </p>
                             <p>Difficulty:
@@ -77,8 +76,7 @@ const GoalList = ({goals, handleFilter}) => {
                                         goals.filter(g => g.difficulty === goal.difficulty), 
                                         `Filtered goals (Difficulty: ${goal.difficulty})`
                                         )
-                                    }}>
-                                    {goal.difficulty}
+                                    }}>{goal.difficulty}
                                 </span>
                             </p>
                         </div>

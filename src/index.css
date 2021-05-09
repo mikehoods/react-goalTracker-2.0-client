@@ -155,6 +155,9 @@ body {
 .goal-list .goal-date {
   cursor: pointer;
 }
+.goal-list .goal-achieved{
+  color: #5EAAA8;
+}
 .goal-tags .tag {
   margin: 4px;
 }
@@ -232,7 +235,7 @@ body {
   text-decoration: line-through #5EAAA8;
   color: grey;
 }
-.goal-achieved{
+.goal-details .goal-achieved{
   color: #5EAAA8;
 }
 /* Create Goal Styling */
@@ -365,7 +368,12 @@ form .form-selectors {
 .tag-div:hover .tag {
   font-weight: 800;
 }
-
+/* TagCloud Styling */
+.allTags-tag:hover, .tag-cloud .tag:hover{
+  cursor: pointer;
+  color: black;
+  font-weight: 700;
+}
 /* Loading Animation */
 .bouncer{
   display: flex;
