@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
-const GoalList = ({goals}) => {
-
-    const [filteredGoals, setFilteredGoals] = useState(goals)
-    const [listHeader, setListHeader] = useState('All Current Goals')
-
+const GoalList = ({goals, handleFilter}) => {
     const goalComplete = (goal) => goal.achieved === true ?
     <i className="material-icons goal-achieved">done</i>
     : ""
@@ -20,19 +15,8 @@ const GoalList = ({goals}) => {
 
     return (
         <div className="goal-list">
-            <div className="goal-list-header">
-                <h2>{listHeader}</h2>
-                {filteredGoals !== goals && 
-                <button
-                    className="clear-button" 
-                    onClick={() => {
-                        setFilteredGoals(goals)
-                        setListHeader('All Current Goals')
-                }}
-                >Clear filters</button>}
-            </div>
-            {/* List of all or filtered goals */}
-            {goals && filteredGoals.map((goal, index) => (
+            {/* Lists all or filtered goals */}
+            {goals && goals.map((goal, index) => (
                 <div className="goal-preview" key={index}>
                     <div className="goal-header">
                         <div className="goal-title">
@@ -42,18 +26,20 @@ const GoalList = ({goals}) => {
                             {goalComplete(goal)}
                         </div>
                             <h3 className="goal-date"
-                                onClick={() => {
-                                    setFilteredGoals(goals.filter(g => formatDate(g.createdAt) === formatDate(goal.createdAt)))
-                                    setListHeader(`Filtered goals (${formatDate(goal.createdAt)})`)
+                                onClick={() => {handleFilter(goals.filter(
+                                    g => formatDate(g.createdAt) === formatDate(goal.createdAt)), 
+                                    `Filtered goals (${formatDate(goal.createdAt)})`
+                                    )
                                 }}>{formatDate(goal.createdAt)}</h3>
                         </div>
                         {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
                         {goal.tags.map((tag, index) => (
                             <p className="tag" 
                                 key={index} 
-                                onClick={() => {
-                                    setFilteredGoals(goals.filter(goal => goal.tags.includes(tag)))
-                                    setListHeader(`Filtered goals (#${tag})`)
+                                onClick={() => {handleFilter(
+                                    goals.filter(goal => goal.tags.includes(tag)),
+                                    `Filtered goals (#${tag})`
+                                    )
                                 }
                                 }>#{tag}</p>
                         ))}
@@ -77,18 +63,20 @@ const GoalList = ({goals}) => {
                         <div className="goal-footer">
                             <p>Priority: 
                                 <span className="footer-span" 
-                                    onClick={() => {
-                                    setFilteredGoals(goals.filter(g => g.priority === goal.priority))
-                                    setListHeader(`Filtered goals (Priority: ${goal.priority})`)
+                                    onClick={() => {handleFilter(
+                                        goals.filter(g => g.priority === goal.priority), 
+                                        `Filtered goals (Priority: ${goal.priority})`
+                                        )
                                 }}>
                                     {goal.priority}
                                 </span>
                             </p>
                             <p>Difficulty:
                                 <span className="footer-span"
-                                    onClick={() => {
-                                        setFilteredGoals(goals.filter(g => g.difficulty === goal.difficulty))
-                                        setListHeader(`Filtered goals (Difficulty: ${goal.difficulty})`)
+                                    onClick={() => {handleFilter(
+                                        goals.filter(g => g.difficulty === goal.difficulty), 
+                                        `Filtered goals (Difficulty: ${goal.difficulty})`
+                                        )
                                     }}>
                                     {goal.difficulty}
                                 </span>

@@ -320,7 +320,7 @@ form .form-selectors {
   border-radius: 0 0 11px 11px;
   padding: 8px;
 }
-.create-goal button, .goal-list button {
+.create-goal button, .goal-list-header button {
   background-color: #EB5E0B;
   color: #F8F1F1;
   border: 0;

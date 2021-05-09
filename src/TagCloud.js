@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const TagCloud = ({ goals }) => {
+const TagCloud = ({ goals, handleFilter }) => {
     const [userGoals, setUserGoals] = useState([])
     const [userTags, setUserTags] = useState([])
     
@@ -22,7 +22,7 @@ const TagCloud = ({ goals }) => {
         <div className="tag-container">
             <div className="tag-cloud">
             {goals.length > 0 && userTags.map((tag, index) => (
-                <p key={index}>#{tag}</p>
+                <p key={index} onClick={() => handleFilter(goals.filter(goal => goal.tags.includes(tag)), `Filtered goals (#${tag})`)}>#{tag}</p>
             ))}
         </div>
         </div>

@@ -10,13 +10,21 @@ const Home = () => {
     const { data, isLoading, error } = useFetch('https://much-to-do.herokuapp.com/todos')
     const { user, isAuthenticated } = useAuth0();
     const [goals, setGoals] = useState(null);
+    const [filteredGoals, setFilteredGoals] = useState(null)
+    const [listHeader, setListHeader] = useState('All Current Goals')
 
     useEffect(() => {
         console.log(user)
         if (data && user) {
             setGoals(data.filter(item => item.username === user.email))
+            setFilteredGoals(data.filter(item => item.username === user.email))
         }
     }, [data, user])
+
+    const handleFilter = (filterBy, headerText) => {
+        setFilteredGoals(filterBy)
+        setListHeader(headerText)
+    }
 
     return (
         <div className='home'>
@@ -31,9 +39,24 @@ const Home = () => {
                     {/* Conditionally render isLoading or GoalList */}
                     {/* { user && <h2 className="user-greeting">Greetings {user.given_name}</h2> } */}
                     { isLoading && <Loading /> }
-                    { goals && <GoalList goals={goals} />}
-                    { goals && <TagCloud goals={goals} />}
-                    
+                    { filteredGoals && <div className="goal-list-header">
+                        <h2>{listHeader}</h2>
+                        {listHeader !== 'All Current Goals' && 
+                        <button
+                            className="clear-button" 
+                            onClick={() => {handleFilter(goals, 'All Current Goals')}}
+                        >Clear filters</button>}
+                    </div>}
+                    { filteredGoals 
+                        && <GoalList 
+                            goals={filteredGoals} 
+                            handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
+                    />}
+                    { goals 
+                        && <TagCloud 
+                            goals={goals} 
+                            handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
+                    />}
                 </div>}
                 
         </div>
