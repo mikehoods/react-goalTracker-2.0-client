@@ -369,7 +369,7 @@ form .form-selectors {
   font-weight: 800;
 }
 /* TagCloud Styling */
-.allTags-tag:hover, .tag-cloud .tag:hover{
+.allTags-tag:hover, .goal-list .tag-cloud .tag:hover{
   cursor: pointer;
   color: black;
   font-weight: 700;
