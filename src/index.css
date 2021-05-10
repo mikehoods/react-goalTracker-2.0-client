@@ -41,7 +41,7 @@ body {
   border: none;
   background-color: #F8F1F1;
   margin-left: 16px;
-  padding: 8px;
+  padding: 6px;
   color: #5EAAA8;
   font-weight: 500;
   font-size: 18px;
@@ -50,7 +50,7 @@ body {
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
-  padding: 8px;
+  padding: 6px;
   color: #5EAAA8;
   font-weight: 500;
   border-radius: 50%;
@@ -84,6 +84,10 @@ body {
   color: #F8F1F1;
   padding: 6px;
 }
+.allTags-tag:hover, .goal-list .tag-cloud .tag:hover{
+  cursor: pointer;
+  color: black;
+}
 /* Welcome Page Styling */
 .welcome-div h1{
   font-size: 40px;
@@ -114,7 +118,7 @@ body {
   margin-bottom: 16px;
 }
 .goal-list-header h2 {
-  font-weight: 600;
+  font-weight: 500;
   padding-bottom: 12px;
 }
 .goal-preview {
@@ -367,12 +371,6 @@ form .form-selectors {
 }
 .tag-div:hover .tag {
   font-weight: 800;
-}
-/* TagCloud Styling */
-.allTags-tag:hover, .goal-list .tag-cloud .tag:hover{
-  cursor: pointer;
-  color: black;
-  font-weight: 700;
 }
 /* Loading Animation */
 .bouncer{
