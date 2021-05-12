@@ -124,8 +124,10 @@ const GoalDetails = () => {
                             step.complete ?
                             <div className="goal-step goal-step-complete" key={i}>
                                 <p className="goal-step-number">{i + 1}</p>
-                                <p className="goal-step-text" onClick={(e) => handleCompleteStep(e, i)}>{step.step}</p>
-                                <i className="material-icons goal-step-check">check</i>
+                                <p className="goal-step-text" onClick={(e) => handleCompleteStep(e, i)}>{step.step}
+                                    <i className="material-icons goal-step-check">check</i>
+                                </p>
+                                
                             </div>
                             :
                             <div className="goal-step goal-step-incomplete" key={i}>

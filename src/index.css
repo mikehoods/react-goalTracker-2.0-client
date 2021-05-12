@@ -176,12 +176,11 @@ body {
 .goal-step {
   display: flex;
   margin: 4px 0;
-}
-.goal-step p {
-  margin: 0 4px;
+  align-items: baseline;
 }
 .goal-step-number {
-  width: 16px;
+  min-width: 16px;
+  min-height: 16px;
   color: #F8F1F1;
   background-color: #5EAAA8;
   border-radius: 50%;
@@ -189,6 +188,13 @@ body {
   font-size: 12px;
   text-align: center;
   font-weight: 900;
+}
+.goal-step p {
+  margin-left: 6px;
+  display: inline;
+}
+.goal-step p i{
+  font-size: 16px;
 }
 .goal-footer {
   display: flex;
@@ -231,6 +237,7 @@ body {
 }
 .goal-step-check {
   color: #5EAAA8;
+  font-size: 16px;
 }
 .goal-step-complete .goal-step-number {
   background-color: #A3D2CA;
