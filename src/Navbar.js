@@ -7,7 +7,11 @@ const Navbar = () => {
     const { isAuthenticated } = useAuth0();
     return (
         <nav className="navbar">
-            <h1>Much To Do</h1>
+            <h1>
+                <span className="app-title-span">M</span>uch
+                <span className="app-title-span">T</span>o
+                <span className="app-title-span">D</span>o
+            </h1>
             <div className="links">
                 <NavLink to="/" exact activeClassName="current"><i className="material-icons">home</i></NavLink>
                 { isAuthenticated && <NavLink to="/create" exact activeClassName="current">

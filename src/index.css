@@ -26,6 +26,9 @@ body {
   box-sizing: border-box;
   border-bottom: 1px solid grey;
 }
+.app-title-span{
+  color: #EB5E0B;
+}
 .navbar h1 {
   color: #5EAAA8;
   font-weight: 700;
