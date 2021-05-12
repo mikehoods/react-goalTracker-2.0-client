@@ -266,7 +266,7 @@ body {
 .create-goal h2 {
   font-size: 20px;
   color: #5EAAA8;
-  padding: 20px 10px 10px 0;
+  padding: 20px 10px 0 10px;
   border-radius: 11px 11px 0 0;
   font-weight: 600;
 }
@@ -296,7 +296,7 @@ form .form-selectors {
 }
 .create-goal .add-step {
   text-align: right;
-  color: #EB5E0B;
+  color: #5EAAA8;
   cursor: pointer;
   font-weight: 500;
 }
@@ -318,6 +318,7 @@ form .form-selectors {
 .form-step i {
   cursor: pointer;
   padding-left: 6px;
+  font-size: 16px;
 }
 .create-goal-footer {
   border-radius: 0 0 11px 11px;
@@ -377,7 +378,7 @@ form .form-selectors {
   cursor: pointer;
 }
 .tag-div:hover .tag {
-  font-weight: 800;
+  color: black;
 }
 /* Loading Animation */
 .bouncer{
@@ -445,4 +446,23 @@ form .form-selectors {
   text-align: right;
   padding: 12px;
   font-size: 24px;
+}
+/* Mobile Styling */
+@media only screen and (max-width: 600px) {
+  .goal-header h2{
+    font-size: 20px;
+  }
+  .goal-header h3{
+    font-size: 18px;
+  }
+  .goal-icons{
+    display: flex;
+  }
+  .goal-icons i{
+    font-size: 16px;
+    padding: 2px;
+  }
+  .goal-tags .tag{
+    padding: 0;
+  }
 }

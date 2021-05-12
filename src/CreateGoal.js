@@ -120,7 +120,7 @@ const CreateGoal = () => {
                         </div>
                     </div>
                     {stepList}
-                    <p className="add-step" onClick={handleAddStep}>+ Add Step</p>
+                    <i className="add-step material-icons" onClick={handleAddStep}>add_to_photos</i>
                     <label>Tags:</label>
                 <input
                     type="text"
