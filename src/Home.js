@@ -11,7 +11,20 @@ const Home = () => {
     const { user, isAuthenticated } = useAuth0();
     const [goals, setGoals] = useState(null);
     const [filteredGoals, setFilteredGoals] = useState(null)
-    const [listHeader, setListHeader] = useState('All Current Goals')
+    const [listHeader, setListHeader] = useState('All Goals')
+
+    // Conditional rendering for filter goals buttons (all, current, achieved)
+    const allActive = listHeader === 'All Goals' ?
+        <button disabled className="active-button">all</button>
+        : <button onClick={() => {handleFilter(goals, 'All Goals')}}>all</button>
+
+    const currentActive = listHeader === 'Current Goals' ?
+        <button disabled className="active-button">current</button>
+        : <button onClick={() => {handleFilter(goals.filter(goal => !goal.achieved), 'Current Goals')}}>current</button>
+
+    const achievedActive = listHeader === 'Achieved Goals' ?
+        <button disabled className="active-button">achieved</button>
+        : <button onClick={() => {handleFilter(goals.filter(goal => goal.achieved), 'Achieved Goals')}}>achieved</button>
 
     useEffect(() => {
         console.log(user)
@@ -41,11 +54,11 @@ const Home = () => {
                     { isLoading && <Loading /> }
                     { filteredGoals && <div className="goal-list-header">
                         <h2>{listHeader}</h2>
-                        {listHeader !== 'All Current Goals' && 
-                        <button
-                            className="clear-button" 
-                            onClick={() => {handleFilter(goals, 'All Current Goals')}}
-                        >Clear filters</button>}
+                        <div>
+                            {allActive}
+                            {currentActive}
+                            {achievedActive}
+                        </div>                        
                     </div>}
                     { filteredGoals 
                         && <GoalList 

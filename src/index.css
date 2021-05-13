@@ -78,6 +78,9 @@ body {
   margin-bottom: 20px;
   font-weight: 400;
 }
+.home .active-button{
+  background-color: #5EAAA8;
+}
 
 /* Tag Cloud Styling */
 .tag-container{
@@ -336,6 +339,7 @@ form .form-selectors {
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
+  margin: 0 6px;
   margin-bottom: 10px;
 }
 #add-tag {
