@@ -127,7 +127,7 @@ const CreateGoal = () => {
                     id="add-tag"
                     onKeyUp={handleAddTag}
                 />
-                <p className="input-help">Press "," (comma) to add tag</p>
+                <p className="input-help">Press "," (comma) to add new tag</p>
                 {tags.length > 0 && <div className="tag-cloud">
                     {tags.map((tag, index) => (
                         <div className="tag-div" key={index}>
