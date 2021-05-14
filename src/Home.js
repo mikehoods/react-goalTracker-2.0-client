@@ -1,4 +1,5 @@
 import Welcome from './Welcome';
+import Filters from './Filters';
 import GoalList from './GoalList';
 import TagCloud from './TagCloud';
 import Loading from './Loading';
@@ -15,68 +16,6 @@ const Home = () => {
     const [filterType, setFilterType] = useState("tag")
     const [filterInput, setFilterInput] = useState("")
 
-    // Conditional rendering for filter goals buttons (all, current, achieved)
-    const allActive = listHeader === 'All Goals' ?
-        <button disabled className="active-button">all</button>
-        : <button onClick={() => {handleFilter(goals, 'All Goals')}}>all</button>
-
-    const currentActive = listHeader === 'Current Goals' ?
-        <button disabled className="active-button">current</button>
-        : <button onClick={() => {handleFilter(goals.filter(goal => !goal.achieved), 'Current Goals')}}>current</button>
-
-    const achievedActive = listHeader === 'Achieved Goals' ?
-        <button disabled className="active-button">achieved</button>
-        : <button onClick={() => {handleFilter(goals.filter(goal => goal.achieved), 'Achieved Goals')}}>achieved</button>
-
-    // Conditional rendering for filterType input
-    const renderInput = (filterType) => {
-        switch(filterType) {
-            case "tag":
-                return <input value={filterInput} type="text" onChange={(e) => setFilterInput(e.target.value)}/>;
-            case "date":
-                return <input type="date" onChange={(e) => setFilterInput(e.target.value)}/>;
-            case "priority":
-                return <select value={filterInput} onChange={(e) => setFilterInput(e.target.value)}>
-                    <option>low</option>
-                    <option>medium</option>
-                    <option>high</option>
-                </select>;
-            case "difficulty":
-                return <select value={filterInput} onChange={(e) => setFilterInput(e.target.value)}>
-                    <option value="easy">easy</option>
-                    <option value="medium">medium</option>
-                    <option value="hard">hard</option>
-                    <option value="impossible">impossible</option>
-                </select>;
-            default:
-                return "";
-        }
-    }
-
-    useEffect(() => {
-        if (goals) {
-            if (filterType === "priority" || filterType === "difficulty") {
-                setFilteredGoals(goals.filter(item => item[filterType] === filterInput))
-            } else if (filterType === "tag") {
-                setFilteredGoals(goals.filter(item => item.tags.indexOf(filterInput) !== -1))
-            } else if (filterType === "date") {
-                setFilteredGoals(goals.filter(item => item.createdAt.includes(filterInput)))
-            }
-            
-            setListHeader(`Filtered by ${filterType}: ${filterInput}`)
-        }
-    }, [filterInput])
-
-    useEffect(() => {
-        if (filterType === "tag" || filterType === "date") {
-            setFilterInput("")
-        } else if (filterType === "priority") {
-            setFilterInput("low")
-        } else if (filterType === "difficulty") {
-            setFilterInput('easy')
-        }
-    }, [filterType])
-
     useEffect(() => {
         console.log(user)
         if (data && user) {
@@ -91,7 +30,17 @@ const Home = () => {
         setFilterType("tag")
         setFilterInput("")
     }
+    const handleDynamicFilter = (filterBy, headerText) => {
+        setFilteredGoals(filterBy)
+        setListHeader(headerText)
+    }
+    const handleFilterType = (type) => {
+        setFilterType(type)
+    }
 
+    const handleFilterInput = (input) => {
+        setFilterInput(input)
+    }
     return (
         <div className='home'>
                 {/* Welcome page prior to log in */}
@@ -105,27 +54,16 @@ const Home = () => {
                     {/* Conditionally render isLoading or GoalList */}
                     {/* { user && <h2 className="user-greeting">Greetings {user.given_name}</h2> } */}
                     { isLoading && <Loading /> }
-                    { filteredGoals && <div className="goal-list-header">
-                        <h2>{listHeader}</h2>
-                        <div>
-                            {allActive}
-                            {currentActive}
-                            {achievedActive}
-                        </div>
-                        <div>
-                            <p>filter todos by</p>
-                            <select
-                                value={filterType}
-                                onChange={(e) => setFilterType(e.target.value)}
-                            >
-                                <option value="tag">tag</option>
-                                <option value="date">date</option>
-                                <option value="priority">priority</option>
-                                <option value="difficulty">difficulty</option>
-                            </select>
-                            {renderInput(filterType)}   
-                        </div>                        
-                    </div>}
+                    { filteredGoals && <Filters
+                            goals={goals} 
+                            handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)}
+                            handleDynamicFilter={(filterBy, headerText) => handleDynamicFilter(filterBy, headerText)}
+                            handleFilterType={(type) => handleFilterType(type)}
+                            handleFilterInput={(input) => handleFilterInput(input)}
+                            filterType={filterType}
+                            filterInput={filterInput}
+                            listHeader={listHeader}
+                    />}
                     { filteredGoals 
                         && <GoalList 
                             goals={filteredGoals} 

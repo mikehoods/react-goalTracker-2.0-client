@@ -28,7 +28,7 @@ const GoalList = ({goals, handleFilter}) => {
                         <h3 className="goal-date"
                             onClick={() => {handleFilter(goals.filter(
                                 g => formatDate(g.createdAt) === formatDate(goal.createdAt)), 
-                                `Filtered goals (${formatDate(goal.createdAt)})`
+                                `Filtered by date: ${formatDate(goal.createdAt)}`
                                 )
                             }}>{formatDate(goal.createdAt)}</h3>
                     </div>
@@ -38,7 +38,7 @@ const GoalList = ({goals, handleFilter}) => {
                                 key={index} 
                                 onClick={() => {handleFilter(
                                     goals.filter(goal => goal.tags.includes(tag)),
-                                    `Filtered goals (#${tag})`
+                                    `Filtered by: #${tag}`
                                     )
                                 }}>#{tag}
                             </p>
@@ -66,7 +66,7 @@ const GoalList = ({goals, handleFilter}) => {
                                 <span className="footer-span" 
                                     onClick={() => {handleFilter(
                                         goals.filter(g => g.priority === goal.priority), 
-                                        `Filtered goals (Priority: ${goal.priority})`
+                                        `Filtered by priority: ${goal.priority}`
                                         )
                                 }}>{goal.priority}
                                 </span>
@@ -75,7 +75,7 @@ const GoalList = ({goals, handleFilter}) => {
                                 <span className="footer-span"
                                     onClick={() => {handleFilter(
                                         goals.filter(g => g.difficulty === goal.difficulty), 
-                                        `Filtered goals (Difficulty: ${goal.difficulty})`
+                                        `Filtered by difficulty: ${goal.difficulty}`
                                         )
                                     }}>{goal.difficulty}
                                 </span>

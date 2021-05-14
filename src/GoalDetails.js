@@ -65,14 +65,14 @@ const GoalDetails = () => {
         if (achieved) {
             setAchieved(false);
             setSteps([...steps], 
-                steps.map(step => { 
+                steps.forEach(step => { 
                     step.complete = false
                 })
             )
         } else {
             setAchieved(true)
             setSteps([...steps],
-                steps.map(step => {
+                steps.forEach(step => {
                     step.complete = true
                 })
             )

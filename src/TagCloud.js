@@ -26,7 +26,7 @@ const TagCloud = ({ goals, handleFilter }) => {
                         className="allTags-tag"
                         onClick={() => handleFilter(
                             goals.filter(goal => goal.tags.includes(tag)), 
-                            `Filtered goals (#${tag})`)}>#{tag}
+                            `Filtered by: #${tag}`)}>#{tag}
                     </p>
                 ))}
             </div>
