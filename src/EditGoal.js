@@ -155,5 +155,5 @@ const EditGoal = () => {
 }
  
 export default withAuthenticationRequired(EditGoal, {
-    onRedirecting: () => (<div>Redirecting to the login page...</div>)
+    onRedirecting: () => (<div className="redirecting">Redirecting to the login page...</div>)
 });

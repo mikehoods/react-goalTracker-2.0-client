@@ -14,15 +14,15 @@ const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, ha
     // Conditional rendering for filter goals buttons (all, current, achieved)
     const allActive = listHeader === 'All Goals' ?
         <button disabled className="active-button">all</button>
-        : <button onClick={() => {handleFilter(goals, 'All Goals')}}>all</button>
+        : <button className="inactive-button" onClick={() => {handleFilter(goals, 'All Goals')}}>all</button>
 
     const currentActive = listHeader === 'Current Goals' ?
         <button disabled className="active-button">current</button>
-        : <button onClick={() => {handleFilter(goals.filter(goal => !goal.achieved), 'Current Goals')}}>current</button>
+        : <button className="inactive-button" onClick={() => {handleFilter(goals.filter(goal => !goal.achieved), 'Current Goals')}}>current</button>
 
     const achievedActive = listHeader === 'Achieved Goals' ?
         <button disabled className="active-button">achieved</button>
-        : <button onClick={() => {handleFilter(goals.filter(goal => goal.achieved), 'Achieved Goals')}}>achieved</button>
+        : <button className="inactive-button" onClick={() => {handleFilter(goals.filter(goal => goal.achieved), 'Achieved Goals')}}>achieved</button>
 
     // Conditional rendering for filterType input
     const renderInput = (filterType) => {

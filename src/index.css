@@ -79,6 +79,10 @@ body {
   font-weight: 400;
 }
 .home .active-button{
+  background-color: #EB5E0B;
+  cursor: not-allowed;
+}
+.home .inactive-button{
   background-color: #5EAAA8;
 }
 
@@ -119,6 +123,14 @@ body {
 }
 
 /* Filter.js Styling */
+.goal-list-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.goal-list-header h2 {
+  font-weight: 500;
+  padding-bottom: 12px;
+}
 .dynamic-filter{
   display: flex;
   justify-content: center;
@@ -137,14 +149,11 @@ body {
 }
 
 /* Goal List Styling */
-
-.goal-list-header {
+.no-todos, .redirecting{
   text-align: center;
-  margin-bottom: 16px;
-}
-.goal-list-header h2 {
-  font-weight: 500;
-  padding-bottom: 12px;
+  font-size: 32px;
+  margin: 24px 0;
+  color: #EB5E0B;
 }
 .goal-preview {
   background-color: white;

@@ -15,6 +15,8 @@ const GoalList = ({goals, handleFilter}) => {
 
     return (
         <div className="goal-list">
+            {/* No goals found */}
+            {goals.length === 0 && <div className="no-todos">No results found.</div>}
             {/* Lists all or filtered goals */}
             {goals && goals.map((goal, index) => (
                 <div className="goal-preview" key={index}>

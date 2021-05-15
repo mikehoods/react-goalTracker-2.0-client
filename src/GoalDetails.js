@@ -156,5 +156,5 @@ const GoalDetails = () => {
 }
  
 export default withAuthenticationRequired(GoalDetails, {
-    onRedirecting: () => (<div>Redirecting to the login page...</div>)
+    onRedirecting: () => (<div className="redirecting">Redirecting to the login page...</div>)
 });
