@@ -105,9 +105,9 @@ const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, ha
         <div className="goal-list-header">
                         <h2>{listHeader}</h2>
                         <div>
-                            {allActive}
                             {currentActive}
                             {achievedActive}
+                            {allActive}
                         </div>
                         <div className="dynamic-filter">                            
                             <p>Filter by </p>

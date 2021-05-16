@@ -66,7 +66,8 @@ const Home = () => {
                     />}
                     { filteredGoals 
                         && <GoalList 
-                            goals={filteredGoals} 
+                            goals={goals}
+                            filteredGoals={filteredGoals}
                             handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
                     />}
                     { goals 

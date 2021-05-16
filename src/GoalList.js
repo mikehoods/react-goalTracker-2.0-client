@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const GoalList = ({goals, handleFilter}) => {
+const GoalList = ({goals, filteredGoals, handleFilter}) => {
     const goalComplete = (goal) => goal.achieved ?
     <i className="material-icons goal-achieved">check_circle</i>
     : ""
@@ -16,9 +16,9 @@ const GoalList = ({goals, handleFilter}) => {
     return (
         <div className="goal-list">
             {/* No goals found */}
-            {goals.length === 0 && <div className="no-todos">No results found.</div>}
+            {filteredGoals.length === 0 && <div className="no-todos">No results found.</div>}
             {/* Lists all or filtered goals */}
-            {goals && goals.map((goal, index) => (
+            {goals && filteredGoals.map((goal, index) => (
                 <div className="goal-preview" key={index}>
                     <div className="goal-header">
                         <div className="goal-title">
