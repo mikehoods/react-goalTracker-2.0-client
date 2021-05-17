@@ -320,7 +320,6 @@ form .form-selectors {
   display: flex;
   justify-content: space-between;
 }
-
 .form-selectors .selector {
   width: 45%;
 }
@@ -414,6 +413,32 @@ form .form-selectors {
 }
 .tag-div:hover .tag {
   color: black;
+}
+/* Help.js Styling */
+.help h1{
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.help h3{
+  margin: 12px 0;
+  font-weight: 500;
+}
+.help p{
+  margin: 6px 0 6px 12px;
+  font-weight: 300;
+}
+.help-contact{
+  display: inline-flex;
+  justify-content: left;
+  align-items: center;
+}
+.help p a {
+  text-decoration: none;
+}
+.help p a i{
+  color: #EB5E0B;
+  margin: 6px 30px 6px 12px;
+  font-size: 30px; 
 }
 /* Loading Animation */
 .bouncer{

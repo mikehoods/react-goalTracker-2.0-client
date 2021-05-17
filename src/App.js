@@ -4,6 +4,7 @@ import CreateGoal from './CreateGoal';
 import EditGoal from './EditGoal';
 import GoalDetails from './GoalDetails';
 import NotFound from './NotFound';
+import Help from './Help';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -20,11 +21,14 @@ function App() {
           <Route path="/create">
             <CreateGoal />
           </Route>
-          <Route path='/goals/:id'>
+          <Route path="/goals/:id">
             <GoalDetails />
           </Route>
-          <Route path='/edit/:id'>
+          <Route path="/edit/:id">
             <EditGoal />
+          </Route>
+          <Route path="/help">
+            <Help />
           </Route>
           <Route path="*">
             <NotFound />

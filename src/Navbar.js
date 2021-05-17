@@ -17,6 +17,9 @@ const Navbar = () => {
                 { isAuthenticated && <NavLink to="/create" exact activeClassName="current">
                     <i className="material-icons">post_add</i>
                 </NavLink> }
+                { isAuthenticated && <NavLink to="/help" exact activeClassName="current">
+                    <i className="material-icons">help</i>    
+                </NavLink>}
                 { isAuthenticated && <Logout /> }
                 { !isAuthenticated && <LoginButton /> }               
             </div>
