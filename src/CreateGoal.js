@@ -124,7 +124,7 @@ const CreateGoal = () => {
                 <input
                     type="text"
                     id="add-tag"
-                    onKeyDown={handleAddTag}
+                    onKeyUp={handleAddTag}
                 />
                 <p className="input-help">Press "," (comma) to add new tag</p>
                 {tags.length > 0 && <div className="tag-cloud">
