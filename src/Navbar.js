@@ -13,7 +13,9 @@ const Navbar = () => {
                 <span className="app-title-span">D</span>o
             </h1>
             <div className="links">
-                <NavLink to="/" exact activeClassName="current"><i className="material-icons">home</i></NavLink>
+                { isAuthenticated && <NavLink to="/" exact activeClassName="current">
+                    <i className="material-icons">home</i>
+                </NavLink> }
                 { isAuthenticated && <NavLink to="/create" exact activeClassName="current">
                     <i className="material-icons">post_add</i>
                 </NavLink> }
@@ -21,7 +23,6 @@ const Navbar = () => {
                     <i className="material-icons">help</i>    
                 </NavLink>}
                 { isAuthenticated && <Logout /> }
-                { !isAuthenticated && <LoginButton /> }               
             </div>
         </nav>
     );
