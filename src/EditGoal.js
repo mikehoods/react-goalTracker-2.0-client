@@ -94,7 +94,7 @@ const EditGoal = () => {
         <h2>Edit Goal</h2>
         <form onSubmit={handleSubmit}>
             <div className="form-main">
-                <label>Goal name:</label>
+                <label>Goal Name</label>
                 <input
                     type="text"
                     required
@@ -103,7 +103,7 @@ const EditGoal = () => {
                 />
                 <div className="form-selectors">
                     <div className="selector">
-                        <p>Difficulty: </p>
+                        <p>Difficulty</p>
                         <select
                             value={difficulty}
                             onChange={(e) => setDifficulty(e.target.value)}
@@ -115,7 +115,7 @@ const EditGoal = () => {
                         </select>
                     </div>
                     <div className="selector">
-                        <p>Priority: </p>
+                        <p>Priority</p>
                         <select
                             value={priority}
                             onChange={(e) => setPriority(e.target.value)}
@@ -127,8 +127,10 @@ const EditGoal = () => {
                     </div>
                 </div>
                 {stepList}                
-                <i className="add-step material-icons" onClick={handleAddStep}>add_to_photos</i>
-                <label>Tags:</label>
+                <div className="add-step">
+                    <i className=" material-icons" onClick={handleAddStep}>add_to_photos</i>
+                </div>
+                <label>Tags</label>
             <input
                 type="text"
                 id="add-tag"

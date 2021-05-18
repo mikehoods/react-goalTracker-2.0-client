@@ -86,7 +86,7 @@ const CreateGoal = () => {
             <h2>Create A New Goal</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-main">
-                    <label>Goal name</label>
+                    <label>Goal Name</label>
                     <input
                         type="text"
                         required
@@ -119,7 +119,9 @@ const CreateGoal = () => {
                         </div>
                     </div>
                     {stepList}
-                    <i className="add-step material-icons" onClick={handleAddStep}>add_to_photos</i>
+                    <div className="add-step">
+                        <i className=" material-icons" onClick={handleAddStep}>add_to_photos</i>
+                    </div>
                     <label>Tags</label>
                 <input
                     type="text"

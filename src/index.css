@@ -133,13 +133,18 @@ body {
 }
 
 /* Filter.js Styling */
+.goal-list-header button{
+  color: #F8F1F1;
+  border: none;
+  border-radius: 4px;
+  margin: 4px;
+}
 .goal-list-header {
   text-align: center;
   margin-bottom: 16px;
 }
 .goal-list-header h2 {
   font-weight: 500;
-  padding-bottom: 12px;
 }
 .dynamic-filter{
   display: flex;
@@ -155,6 +160,7 @@ body {
   border-radius: 4px;
   background-color: #ededed;
   border: 1px solid grey;
+  color: #1c1c1c;
 }
 .dynamic-filter .filterType-select{
   margin: 0 16px 0 8px;
@@ -165,12 +171,11 @@ body {
   text-align: center;
   font-size: 32px;
   margin: 24px 0;
-  color: #EB5E0B;
+  color: #1c1c1c;
 }
 .goal-preview {
   background-color: #ededed;
   border-radius: 12px;
-  border: 1px solid grey;
   width: 100%;
   margin-bottom: 18px;
 }
@@ -299,7 +304,6 @@ body {
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-  border: 1px solid grey;
   border-radius: 12px;
   background-color: #F8F1F1;
 }
@@ -328,6 +332,7 @@ body {
   display: block;
   border-radius: 4px;
   background-color: #ededed;
+  color: #1c1c1c;
 }
 form .form-selectors {
   display: flex;
@@ -340,11 +345,14 @@ form .form-selectors {
   text-align: left;
   font-weight: 300;
 }
-.create-goal .add-step {
-  text-align: right;
+.create-goal .add-step{
+  display: flex;
+  justify-content: flex-end;
   color: #5EAAA8;
   cursor: pointer;
-  font-weight: 500;
+}
+.create-goal .add-step i{
+  font-size: 20px;
 }
 .create-goal .created-steps {
   border-radius: 12px;
@@ -365,12 +373,13 @@ form .form-selectors {
   cursor: pointer;
   padding-left: 6px;
   font-size: 16px;
+  color: grey;
 }
 .create-goal-footer {
   border-radius: 0 0 11px 11px;
   padding: 8px;
 }
-.create-goal button, .goal-list-header button {
+.create-goal button{
   background-color: #EB5E0B;
   color: #F8F1F1;
   border: 0;
@@ -429,10 +438,12 @@ form .form-selectors {
 }
 /* Help.js Styling */
 .help{
-  padding: 10px;
+  padding: 12px;
   background-color: #ebebeb;
   border-radius: 12px;
-  border: 1px solid grey;
+}
+.help h1, .help h3{
+  text-align: center;
 }
 .help h1{
   font-weight: 500;
@@ -443,13 +454,15 @@ form .form-selectors {
   font-weight: 500;
 }
 .help p{
-  margin: 0 0 6px 12px;
+  margin: 6px 20px;
   font-weight: 400;
+  text-align: justify;
 }
-.help-contact{
+.help .help-contact{
   display: inline-flex;
   justify-content: left;
   align-items: center;
+  margin-top: 0;
 }
 .help p a {
   text-decoration: none;

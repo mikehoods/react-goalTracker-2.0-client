@@ -70,7 +70,7 @@ const Home = () => {
                             filteredGoals={filteredGoals}
                             handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
                     />}
-                    { goals 
+                    { filteredGoals 
                         && <TagCloud 
                             goals={goals} 
                             handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
