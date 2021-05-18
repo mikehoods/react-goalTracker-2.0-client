@@ -20,17 +20,18 @@ const TagCloud = ({ goals, handleFilter }) => {
 
     return (
         <div className="tag-container">
-            <div className="tag-cloud">
-                {goals.length > 0 && userTags.map((tag, index) => (
+            { userTags.length > 0 && <div className="tag-cloud">
+                {userTags.map((tag, index) => (
                     <p key={index}
                         className="allTags-tag"
                         onClick={() => handleFilter(
                             goals.filter(goal => goal.tags.includes(tag)), 
-                            `Filtered by: #${tag}`)}>#{tag}
+                            `Filtered by: #${tag}`)}
+                    >#{tag}
                     </p>
                 ))}
-            </div>
-        </div>   
+            </div>}
+        </div>  
      );
 }
  

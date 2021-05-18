@@ -2,6 +2,7 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import useFetch from "./useFetch";
 import { withAuthenticationRequired } from '@auth0/auth0-react';
+import Loading from "./Loading";
 
 const GoalDetails = () => {
     const { id } = useParams();
@@ -97,7 +98,7 @@ const GoalDetails = () => {
 
     return (
         <div className="goal-details">
-            { isLoading && <div>Loading...</div> }
+            { isLoading && <Loading /> }
             { error && <div>{ error }</div> }
             { goal && (
                 <div className="goal-preview">

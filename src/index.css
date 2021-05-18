@@ -10,6 +10,7 @@ html {
 body { 
   background: linear-gradient(to bottom, #5EAAA8, #F8F1F1, #5EAAA8);
   height: 100%;
+  color: #1c1c1c;
 }
 
 /* Navbar Styling */
@@ -24,7 +25,6 @@ body {
   top: 0; */
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 1px solid grey;
 }
 .app-title-span{
   color: #EB5E0B;
@@ -43,24 +43,32 @@ body {
 .navbar .links Button{
   border: none;
   background-color: #F8F1F1;
-  margin-left: 16px;
-  padding: 6px;
   color: #5EAAA8;
   font-weight: 500;
   font-size: 18px;
-  border-radius: 50%; 
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
 }
 .navbar a {
-  margin-left: 16px;
   text-decoration: none;
-  padding: 6px;
   color: #5EAAA8;
   font-weight: 500;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
 }
 .navbar a:hover, .navbar Button:hover{
   cursor: pointer;
   box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+.navbar .material-icons{
+  padding: 2px;
 }
 .navbar .current {
   color: #EB5E0B;
@@ -68,8 +76,8 @@ body {
 }
 
 /* Home Styling */
-
 .content {
+  min-height: 95vh;
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
@@ -89,6 +97,10 @@ body {
 /* Tag Cloud Styling */
 .tag-container{
   margin-bottom: 18px;
+  background-color: rgba(94, 170, 168, 0.5);
+}
+.tag-container .tag-cloud{
+  margin: 0;
 }
 .tag-container p{
   color: #F8F1F1;
@@ -96,7 +108,7 @@ body {
 }
 .allTags-tag:hover, .goal-list .tag-cloud .tag:hover{
   cursor: pointer;
-  color: black;
+  color: #1c1c1c;
 }
 /* Welcome Page Styling */
 .welcome-div h1{
@@ -105,18 +117,16 @@ body {
 .welcome-div h3{
   margin: 24px 0;
   font-weight: 300;
-  text-align: center;
 }
 .welcome-div h2{
   font-weight: 500;
-  text-align: right;
+  text-align: center;
 }
 .welcome-title, .welcome-login{
   color: #EB5E0B;
 }
 .welcome-login{
   font-weight: 700;
-  text-decoration: #F8F1F1 underline;
 }
 .welcome-login:hover{
   cursor: pointer;
@@ -143,8 +153,10 @@ body {
 .dynamic-filter input, .dynamic-filter select {
   padding: 4px;
   border-radius: 4px;
+  background-color: #ededed;
+  border: 1px solid grey;
 }
-.filterType-select{
+.dynamic-filter .filterType-select{
   margin: 0 16px 0 8px;
 }
 
@@ -156,7 +168,7 @@ body {
   color: #EB5E0B;
 }
 .goal-preview {
-  background-color: white;
+  background-color: #ededed;
   border-radius: 12px;
   border: 1px solid grey;
   width: 100%;
@@ -180,7 +192,7 @@ body {
   align-items: top;
 }
 .goal-header h2 {
-  color: black;
+  color: #1c1c1c;
   font-weight: 500;
   padding: 0 8px;
   border-radius: 12px;
@@ -242,7 +254,7 @@ body {
   margin: 0 8px;
 }
 .footer-span {
-  color: black;
+  color: #1c1c1c;
   font-weight: 300;
   margin-left: 4px;
 }
@@ -256,7 +268,6 @@ body {
   align-items: top;
 }
 .goal-icons i {
-  margin: 2px;
   padding: 4px;
   cursor: pointer;
   color: grey;
@@ -309,19 +320,21 @@ body {
 }
 .create-goal input, .create-goal select {
   width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
+  padding: 4px;
+  margin-top: 2px;
+  margin-bottom: 10px;
   border: 1px solid #A3D2CA;
   box-sizing: border-box;
   display: block;
   border-radius: 4px;
+  background-color: #ededed;
 }
 form .form-selectors {
   display: flex;
   justify-content: space-between;
 }
 .form-selectors .selector {
-  width: 45%;
+  width: 48%;
 }
 .create-goal p {
   text-align: left;
@@ -400,9 +413,9 @@ form .form-selectors {
 .tag-cloud .tag-icon {
   font-size: 14px;
   align-self: flex-end;
-  background-color: white;
+  background-color: #ededed;
   padding: 4px;
-  color: black;
+  color: #1c1c1c;
   border-radius: 50%;
   display: none;
   margin-left: 2px;
@@ -412,20 +425,26 @@ form .form-selectors {
   cursor: pointer;
 }
 .tag-div:hover .tag {
-  color: black;
+  color: #1c1c1c;
 }
 /* Help.js Styling */
+.help{
+  padding: 10px;
+  background-color: #ebebeb;
+  border-radius: 12px;
+  border: 1px solid grey;
+}
 .help h1{
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 .help h3{
   margin: 12px 0;
   font-weight: 500;
 }
 .help p{
-  margin: 6px 0 6px 12px;
-  font-weight: 300;
+  margin: 0 0 6px 12px;
+  font-weight: 400;
 }
 .help-contact{
   display: inline-flex;
@@ -478,7 +497,7 @@ form .form-selectors {
 }
 .not-found h1{
   font-weight: 900;
-  color: black;
+  color: #1c1c1c;
   padding: 8px;
   font-size: 40px;
 }
@@ -495,7 +514,7 @@ form .form-selectors {
 .not-found a{
   text-decoration: none;
   color: #EB5E0B;
-  text-decoration: #F8F1F1 underline;
+  /* text-decoration: #F8F1F1 underline; */
   font-weight: 700;
   
 }

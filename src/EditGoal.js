@@ -21,7 +21,7 @@ const EditGoal = () => {
 
     const stepList = steps.map((step, index) => (
         <div key={index}>
-            <label>Step {index + 1}:</label>
+            <label>Step {index + 1}</label>
             <div className="form-step">
                 <input
                     type="text"

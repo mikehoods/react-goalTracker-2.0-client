@@ -10,7 +10,6 @@ const CreateGoal = () => {
     const [tempStep, setTempStep] = useState("");
     const [steps, setSteps] = useState([{"step": "", "complete": false}]);
     const [tags, setTags] = useState([]);
-    // const [username, setUsername] = useState("");
 
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
@@ -31,7 +30,7 @@ const CreateGoal = () => {
 
     const stepList = steps.map((step, index) => (
         <div key={index}>
-            <label>Step {index + 1}:</label>
+            <label>Step {index + 1}</label>
             <div className="form-step">
                 <input
                     type="text"
@@ -87,7 +86,7 @@ const CreateGoal = () => {
             <h2>Create A New Goal</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-main">
-                    <label>Goal name:</label>
+                    <label>Goal name</label>
                     <input
                         type="text"
                         required
@@ -96,7 +95,7 @@ const CreateGoal = () => {
                     />
                     <div className="form-selectors">
                         <div className="selector">
-                            <p>Difficulty: </p>
+                            <p>Difficulty</p>
                             <select
                                 value={difficulty}
                                 onChange={(e) => setDifficulty(e.target.value)}
@@ -108,7 +107,7 @@ const CreateGoal = () => {
                             </select>
                         </div>
                         <div className="selector">
-                            <p>Priority: </p>
+                            <p>Priority</p>
                             <select
                                 value={priority}
                                 onChange={(e) => setPriority(e.target.value)}
@@ -121,7 +120,7 @@ const CreateGoal = () => {
                     </div>
                     {stepList}
                     <i className="add-step material-icons" onClick={handleAddStep}>add_to_photos</i>
-                    <label>Tags:</label>
+                    <label>Tags</label>
                 <input
                     type="text"
                     id="add-tag"
