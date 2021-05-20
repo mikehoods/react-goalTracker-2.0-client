@@ -3,6 +3,7 @@ import Filters from './Filters';
 import GoalList from './GoalList';
 import TagCloud from './TagCloud';
 import Loading from './Loading';
+import Footer from './Footer';
 import useFetch from './useFetch';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from 'react'
@@ -75,8 +76,9 @@ const Home = () => {
                             goals={goals} 
                             handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
                     />}
+                    
                 </div>}
-                
+                <Footer />
         </div>
     );
 }

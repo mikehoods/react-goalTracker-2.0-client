@@ -77,10 +77,11 @@ body {
 
 /* Home Styling */
 .content {
-  min-height: 95vh;
+  min-height: 100vh;
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
+  position: relative;
 }
 .user-greeting{
   margin-bottom: 20px;
@@ -165,7 +166,16 @@ body {
 .dynamic-filter .filterType-select{
   margin: 0 16px 0 8px;
 }
-
+/* Footer.js Styling */
+.footer{
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  left: 0;
+}
 /* Goal List Styling */
 .no-todos, .redirecting{
   text-align: center;
