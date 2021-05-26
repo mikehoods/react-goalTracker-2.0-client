@@ -8,7 +8,7 @@ html {
   background-color: #F8F1F1;
 }
 body { 
-  background: linear-gradient(to bottom, #5EAAA8, #F8F1F1, #5EAAA8);
+  background: linear-gradient(to bottom right, #5EAAA8, #A3D2CA, #5EAAA8);
   height: 100%;
   color: #1c1c1c;
 }
@@ -112,6 +112,10 @@ body {
   color: #1c1c1c;
 }
 /* Welcome Page Styling */
+.welcome-div{
+  margin: 20vh auto;
+  text-align: center;
+}
 .welcome-div h1{
   font-size: 40px;
 }
@@ -121,7 +125,6 @@ body {
 }
 .welcome-div h2{
   font-weight: 500;
-  text-align: center;
 }
 .welcome-title, .welcome-login{
   color: #EB5E0B;
