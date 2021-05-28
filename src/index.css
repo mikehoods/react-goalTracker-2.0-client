@@ -211,6 +211,11 @@ body {
   width: 100%;
   box-sizing: border-box;  
 }
+.goal-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 .complete-goal-header{
   display: flex;
   justify-content: center;
@@ -227,11 +232,6 @@ body {
 .goal-preview .complete-goal-header .goal-achieved{
   color: #F8F1F1;
 }
-.goal-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: top;
-}
 .goal-header h2 {
   color: #1c1c1c;
   font-weight: 500;
@@ -245,9 +245,6 @@ body {
 }
 .goal-list .goal-date {
   cursor: pointer;
-}
-.goal-list .goal-achieved{
-  color: #5EAAA8;
 }
 .goal-tags .tag {
   margin: 4px;
@@ -308,11 +305,16 @@ body {
   justify-content: space-between;
   align-items: top;
 }
+.goal-icons{
+  display: flex;
+  align-items: flex-start;
+}
 .goal-icons i {
-  padding: 4px;
+  padding: 2px;
   cursor: pointer;
   color: grey;
   border-radius: 50%;
+  font-size: 20px;
 }
 .goal-icons i:hover {
   box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
@@ -583,12 +585,11 @@ form .form-selectors {
   .goal-header h3{
     font-size: 18px;
   }
-  .goal-icons{
-    display: flex;
+  .complete-goal-header, .complete-goal-header i{
+    font-size: 14px;
   }
   .goal-icons i{
     font-size: 16px;
-    padding: 2px;
   }
   .goal-tags .tag{
     padding: 0;

@@ -94,10 +94,10 @@ const EditGoal = () => {
 
     return (
         goal && <div className="create-goal">
-        <h2>Edit Goal</h2>
+        <h2>Edit Todo</h2>
         <form onSubmit={handleSubmit}>
             <div className="form-main">
-                <label>Goal Name</label>
+                <label>Todo Name</label>
                 <input
                     type="text"
                     required
@@ -152,7 +152,7 @@ const EditGoal = () => {
             </div>
             
             <div className="create-goal-footer">
-                {!isPending && <button>Edit Goal</button>}
+                {!isPending && <button>Edit Todo</button>}
                 {isPending && <Loading />}
             </div>
         </form>
