@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 
 const GoalList = ({goals, filteredGoals, handleFilter}) => {
     const goalComplete = (goal) => goal.achieved ?
-    <i className="material-icons goal-achieved">check_circle</i>
+    <div className="complete-goal-header">
+        <p className="complete-text">Complete</p>
+        <i className="material-icons goal-achieved">check</i>
+    </div>
+    
     : ""
 
     const formatDate = (date) => {
@@ -21,11 +25,12 @@ const GoalList = ({goals, filteredGoals, handleFilter}) => {
             {goals && filteredGoals.map((goal, index) => (
                 <div className="goal-preview" key={index}>
                     <div className="goal-header">
+                        
                         <div className="goal-title">
                             <Link to={`/goals/${goal._id}`} className="goal-link">
                                 <h2>{goal.title}</h2>
                             </Link>
-                            {goalComplete(goal)}
+                            {goalComplete(goal)}  
                         </div>
                         <h3 className="goal-date"
                             onClick={() => {handleFilter(goals.filter(

@@ -14,7 +14,6 @@ body {
 }
 
 /* Navbar Styling */
-
 .navbar {
   padding: 20px;
   display: flex;
@@ -98,7 +97,6 @@ body {
 /* Tag Cloud Styling */
 .tag-container{
   margin-bottom: 18px;
-  background-color: rgba(94, 170, 168, 0.5);
 }
 .tag-container .tag-cloud{
   margin: 0;
@@ -115,13 +113,22 @@ body {
 .welcome-div{
   margin: 20vh auto;
   text-align: center;
+  background-color: #F8F1F1;
+  padding: 10px;
+  border-radius: 12px;
 }
 .welcome-div h1{
   font-size: 40px;
 }
+.welcome-div .app-title-uppercase{
+  color: #EB5E0B;
+}
+.welcome-div .app-title-lowercase{
+  color: #5EAAA8;
+}
 .welcome-div h3{
   margin: 24px 0;
-  font-weight: 300;
+  font-weight: 400;
 }
 .welcome-div h2{
   font-weight: 500;
@@ -203,6 +210,22 @@ body {
   padding: 14px;
   width: 100%;
   box-sizing: border-box;  
+}
+.complete-goal-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5EAAA8;
+  border-radius: 12px;
+  max-width: 25%;
+  padding: 2px 4px;
+  color: #F8F1F1;
+}
+.complete-text{
+  margin-right: 4px;
+}
+.goal-preview .complete-goal-header .goal-achieved{
+  color: #F8F1F1;
 }
 .goal-title {
   display: flex;
