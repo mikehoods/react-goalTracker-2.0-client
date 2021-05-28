@@ -15,6 +15,7 @@ const EditGoal = () => {
     const [tempStep, setTempStep] = useState("");
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
+    const [tagsInput, setTagsInput] = useState([]);
     const [achieved, setAchieved] = useState(null);
 
     const [isPending, setIsPending] = useState(false);
@@ -45,17 +46,17 @@ const EditGoal = () => {
         }
     }, [goal])
 
-    const handleAddTag = (e) => {
-        const currentTag = e.target.value.replace(/[, ]+/g, "").trim()
-        if (e.key === ',' && currentTag) {
-            if (!tags.includes(currentTag)) {
-                setTags([...tags, currentTag])
-            }
-            e.target.value = ""
+    useEffect(() => {
+        if (goal) {
+            setTagsInput("#" + goal.tags.join("#").replace(/[#]+/g, " #"))
         }
-        if (!currentTag) {
-            e.target.value = ""
-        } 
+    }, [goal])
+
+    const handleTags = (e) => {
+        setTagsInput(e.target.value)
+        const tempTags = new Set(e.target.value.replace(/[ ]+/g, "").trim().split("#"))
+        tempTags.delete("")
+        setTags([...tempTags])
     }
 
     const handleAddStep = (e) => {
@@ -69,6 +70,8 @@ const EditGoal = () => {
     }
     const handleDeleteTag = (e, index) => {
         setTags(tags => tags.filter((tag, i) => i !== index))
+        const newTagsInput = tagsInput.replace("#" + tags[index], "")
+        setTagsInput(newTagsInput.replace("  ", " "))
     }
     const handleStepChange = (e, index) => {
         setSteps([...steps], steps[index].step = e.target.value)
@@ -133,10 +136,11 @@ const EditGoal = () => {
                 <label>Tags</label>
             <input
                 type="text"
+                value={tagsInput}
                 id="add-tag"
-                onKeyUp={handleAddTag}
+                onChange={handleTags}
             />
-            <p className="input-help">Press "," (comma) to add new tag</p>
+            <p className="input-help">Separate tags with #</p>
             {tags.length > 0 && <div className="tag-cloud">
                     {tags.map((tag, index) => (
                         <div className="tag-div" key={index}>

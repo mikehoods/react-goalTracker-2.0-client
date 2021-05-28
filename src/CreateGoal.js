@@ -10,22 +10,17 @@ const CreateGoal = () => {
     const [tempStep, setTempStep] = useState("");
     const [steps, setSteps] = useState([{"step": "", "complete": false}]);
     const [tags, setTags] = useState([]);
+    const [tagsInput, setTagsInput] = useState("");
 
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
     const { user } = useAuth0();
 
-    const handleAddTag = (e) => {
-        const currentTag = e.target.value.replace(/[, ]+/g, "").trim()
-        if (e.key === ',' && currentTag) {
-            if (!tags.includes(currentTag)) {
-                setTags([...tags, currentTag])
-            }
-            e.target.value = ""
-        }
-        if (!currentTag) {
-            e.target.value = ""
-        } 
+    const handleTags = (e) => {
+        setTagsInput(e.target.value)
+        const tempTags = new Set(e.target.value.replace(/[ ]+/g, "").trim().split("#"))
+        tempTags.delete("")
+        setTags([...tempTags])
     }
 
     const stepList = steps.map((step, index) => (
@@ -60,6 +55,8 @@ const CreateGoal = () => {
 
     const handleDeleteTag = (e, index) => {
         setTags(tags => tags.filter((tag, i) => i !== index))
+        const newTagsInput = tagsInput.replace("#" + tags[index], "")
+        setTagsInput(newTagsInput.replace("  ", " "))
     }
 
     const handleSubmit = async (e) => {
@@ -126,9 +123,10 @@ const CreateGoal = () => {
                 <input
                     type="text"
                     id="add-tag"
-                    onKeyUp={handleAddTag}
+                    value={tagsInput}
+                    onChange={handleTags}
                 />
-                <p className="input-help">Press "," (comma) to add new tag</p>
+                <p className="input-help">Separate tags with #</p>
                 {tags.length > 0 && <div className="tag-cloud">
                     {tags.map((tag, index) => (
                         <div className="tag-div" key={index}>
