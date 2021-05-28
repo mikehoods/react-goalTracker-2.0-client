@@ -16,9 +16,9 @@ const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, ha
         <button disabled className="active-button">all</button>
         : <button className="inactive-button" onClick={() => {handleFilter(goals, 'All Todos')}}>all</button>
 
-    const currentActive = listHeader === 'Current Todos' ?
-        <button disabled className="active-button">current</button>
-        : <button className="inactive-button" onClick={() => {handleFilter(goals.filter(goal => !goal.achieved), 'Current Todos')}}>current</button>
+    const pendingActive = listHeader === 'Pending Todos' ?
+        <button disabled className="active-button">pending</button>
+        : <button className="inactive-button" onClick={() => {handleFilter(goals.filter(goal => !goal.achieved), 'Pending Todos')}}>pending</button>
 
     const completedActive = listHeader === 'Completed Todos' ?
         <button disabled className="active-button">completed</button>
@@ -105,7 +105,7 @@ const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, ha
         <div className="goal-list-header">
                         <h2>{listHeader}</h2>
                         <div>
-                            {currentActive}
+                            {pendingActive}
                             {completedActive}
                             {allActive}
                         </div>
