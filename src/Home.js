@@ -13,7 +13,7 @@ const Home = () => {
     const { user, isAuthenticated } = useAuth0();
     const [goals, setGoals] = useState(null);
     const [filteredGoals, setFilteredGoals] = useState(null)
-    const [listHeader, setListHeader] = useState('All Goals')
+    const [listHeader, setListHeader] = useState('All Todos')
     const [filterType, setFilterType] = useState("tag")
     const [filterInput, setFilterInput] = useState("")
 

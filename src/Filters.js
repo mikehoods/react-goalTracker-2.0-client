@@ -12,17 +12,17 @@ const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, ha
     }
 
     // Conditional rendering for filter goals buttons (all, current, achieved)
-    const allActive = listHeader === 'All Goals' ?
+    const allActive = listHeader === 'All Todos' ?
         <button disabled className="active-button">all</button>
-        : <button className="inactive-button" onClick={() => {handleFilter(goals, 'All Goals')}}>all</button>
+        : <button className="inactive-button" onClick={() => {handleFilter(goals, 'All Todos')}}>all</button>
 
-    const currentActive = listHeader === 'Current Goals' ?
+    const currentActive = listHeader === 'Current Todos' ?
         <button disabled className="active-button">current</button>
-        : <button className="inactive-button" onClick={() => {handleFilter(goals.filter(goal => !goal.achieved), 'Current Goals')}}>current</button>
+        : <button className="inactive-button" onClick={() => {handleFilter(goals.filter(goal => !goal.achieved), 'Current Todos')}}>current</button>
 
-    const achievedActive = listHeader === 'Achieved Goals' ?
-        <button disabled className="active-button">achieved</button>
-        : <button className="inactive-button" onClick={() => {handleFilter(goals.filter(goal => goal.achieved), 'Achieved Goals')}}>achieved</button>
+    const completedActive = listHeader === 'Completed Todos' ?
+        <button disabled className="active-button">completed</button>
+        : <button className="inactive-button" onClick={() => {handleFilter(goals.filter(goal => goal.achieved), 'Completed Todos')}}>completed</button>
 
     // Conditional rendering for filterType input
     const renderInput = (filterType) => {
@@ -106,7 +106,7 @@ const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, ha
                         <h2>{listHeader}</h2>
                         <div>
                             {currentActive}
-                            {achievedActive}
+                            {completedActive}
                             {allActive}
                         </div>
                         <div className="dynamic-filter">                            

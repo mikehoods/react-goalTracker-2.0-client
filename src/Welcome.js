@@ -14,7 +14,7 @@ const Welcome = () => {
                 these days
             </h1>
             <h3>Now you can keep track of all your to do lists in one place</h3>
-            <h2>Please <span className="welcome-login" onClick={loginWithRedirect}>log in</span> to continue</h2>
+            <h2>Please <span className="welcome-login" onClick={loginWithRedirect}>login</span> to continue</h2>
         </div>
         
      );
