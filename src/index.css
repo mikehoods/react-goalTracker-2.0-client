@@ -590,6 +590,21 @@ form .form-selectors {
 }
 /* Mobile Styling */
 @media only screen and (max-width: 600px) {
+  .dynamic-filter p{
+    font-size: 14px;
+  }
+  .dynamic-filter .filterType-select{
+    margin: 0 6px;
+  }
+  .dynamic-filter input, .dynamic-filter select {
+    padding: 4px;
+  }
+  .dynamic-filter input{
+    width: 40vw;
+  }
+  .dynamic-filter select{
+    width: 30vw;
+  }
   .goal-header h2{
     font-size: 20px;
   }
