@@ -4,7 +4,7 @@ MuchToDo is a web application to keep track of your todo lists. It offers dynami
 
 ## Usage
 
-MuchToDo is live at https://much-todo.netlify.app/
+MuchToDo is live at https://much-todo.netlify.app
 
 ## Login
 
@@ -26,11 +26,11 @@ You can set the difficulty level for your todo list as: 'easy', 'medium', 'hard'
 
 ### Priority
 
-Similar to difficulty. You can set a priority level of: 'low', 'medium', or 'high' for your todo list. You can view your todo lists by priority level, so that you can be sure to take care of the most urgent tasks first.
+Similar to difficulty. You can set a priority level of: 'low', 'medium', or 'high' for your todo list. You can view your todo lists by priority level so that you can be sure to take care of the most urgent tasks first.
 
 ### Adding Steps
 
-The form will allow you to create as many steps or add as many tags for your todo list as you desire. To add new steps, click on the green '+' icon to the bottom right of the step list. Each step added is a required field. If you create too many, simply delete them.
+The form will allow you to create as many steps or add as many tags to your todo list as you desire. To add new steps, click on the green '+' icon to the bottom right of the step list. Each step added is a required field. If you create too many, simply delete them.
 
 ### Deleting Steps
 
@@ -46,34 +46,4 @@ Tags can either be deleted manually inside the input field by removing the corre
 
 ### Submitting New ToDo List
 
-It's as simple as clicking on the 'Create ToDo' button. Todo Name, Difficulty, Priority, and any created Steps are all required fields and must contain a value for the form to submit. Upon successful submission, you will be redirect to the home page.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+It's as simple as clicking on the 'Create ToDo' button. Todo Name, Difficulty, Priority, and any existing Steps are all required fields and must contain a value for the form to submit. Upon successful submission, you will be redirect to the home page.
