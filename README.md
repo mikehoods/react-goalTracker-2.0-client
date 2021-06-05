@@ -47,3 +47,7 @@ Tags can either be deleted manually inside the input field by removing the corre
 ### Submitting New ToDo List
 
 It's as simple as clicking on the 'Create ToDo' button. Todo Name, Difficulty, Priority, and any existing Steps are all required fields and must contain a value for the form to submit. Upon successful submission, you will be redirect to the home page.
+
+## Updating Todos
+
+To update your todos, just click on the title of that todo list from the home page. This will take you to that list's details page. You will notice some new icons to the right of the todo list title. They respectively allow you to edit, delete, or mark your list as complete. You can also click on specific steps to toggle their status as complete or incomplete.
