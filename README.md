@@ -51,3 +51,7 @@ It's as simple as clicking on the 'Create ToDo' button. Todo Name, Difficulty, P
 ## Updating Todos
 
 To update your todos, just click on the title of that todo list from the home page. This will take you to that list's details page. You will notice some new icons to the right of the todo list title. They respectively allow you to edit, delete, or mark your list as complete. You can also click on specific steps to toggle their status as complete or incomplete.
+
+## Filtering Options
+
+When you've got too many todo lists to keep track of, MuchToDo makes it easy to keep track of them all in one spot. From the homepage, you can filter your lists a number of ways. The buttons above your todo lists allow you to switch between pending, completed, or all todos with just a click. Below that is a dynamic filter input that allows you to manually filter your lists by tag, date, priority or difficulty. If that's not enough, you can also click on any of those specific parameters (tag, date, priority, difficulty) inside a specific todo list to achieve the same results.
