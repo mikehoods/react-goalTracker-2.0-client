@@ -1,12 +1,13 @@
-import Welcome from './Welcome';
-import Filters from './Filters';
-import GoalList from './GoalList';
-import TagCloud from './TagCloud';
-import Loading from './Loading';
-import Footer from './Footer';
-import useFetch from './useFetch';
-import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from 'react'
+import { useAuth0 } from '@auth0/auth0-react';
+
+import Filters from '../components/Filters';
+import Footer from '../layouts/Footer';
+import GoalList from '../components/GoalList';
+import Loading from '../components/Loading';
+import TagCloud from '../components/TagCloud';
+import useFetch from '../hooks/useFetch';
+import Welcome from './Welcome';
 
 const Home = () => {
     const { data, isLoading, error } = useFetch('https://much-to-do.herokuapp.com/todos')

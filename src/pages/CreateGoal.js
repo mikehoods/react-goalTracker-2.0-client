@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { withAuthenticationRequired, useAuth0 } from '@auth0/auth0-react';
-import Loading from './Loading';
+
+import Loading from '../components/Loading';
 
 const CreateGoal = () => {
     const [title, setTitle] = useState("");

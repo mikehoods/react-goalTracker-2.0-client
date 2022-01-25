@@ -1,10 +1,10 @@
-import Navbar from './Navbar';
-import Home from './Home';
-import CreateGoal from './CreateGoal';
-import EditGoal from './EditGoal';
-import GoalDetails from './GoalDetails';
-import NotFound from './NotFound';
-import Help from './Help';
+import CreateGoal from './pages/CreateGoal';
+import EditGoal from './pages/EditGoal';
+import GoalDetails from './pages/GoalDetails';
+import Help from './pages/Help';
+import Home from './pages/Home';
+import Navbar from './layouts/Navbar';
+import NotFound from './pages/NotFound';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 

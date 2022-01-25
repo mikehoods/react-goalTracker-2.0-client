@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from "react-router-dom";
-import useFetch from "./useFetch";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
-import Loading from './Loading';
+
+import Loading from '../components/Loading';
+import useFetch from "../hooks/useFetch";
 
 const EditGoal = () => {
     const { id } = useParams();
