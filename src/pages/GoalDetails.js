@@ -34,14 +34,10 @@ const GoalDetails = () => {
             setTags(goal.tags)
             setAchieved(goal.achieved)
         }
-        
     }, [goal])
 
     useEffect(() => {
-        if (achieved !== null) {
-            updateGoal()
-        }
-        
+        if (achieved !== null) updateGoal() 
     }, [achieved])
 
     const handleDelete = () => {
@@ -93,14 +89,15 @@ const GoalDetails = () => {
     }
 
     const isAchieved = achieved ?
-    <i className="material-icons goal-achieved" onClick={handleAchieved}>check_circle</i>
-    :
-    <i className="material-icons goal-unachieved" onClick={handleAchieved}>done</i>
+        <i className="material-icons goal-achieved" onClick={handleAchieved}>check_circle</i>
+        :
+        <i className="material-icons goal-unachieved" onClick={handleAchieved}>done</i>
 
     return (
         <div className="goal-details">
             { isLoading && <Loading /> }
             { error && <div>{ error }</div> }
+            
             { goal && (
                 <div className="goal-preview">
                     <div className="goal-header">

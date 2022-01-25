@@ -36,50 +36,42 @@ const Home = () => {
         setFilteredGoals(filterBy)
         setListHeader(headerText)
     }
-    const handleFilterType = (type) => {
-        setFilterType(type)
-    }
+    const handleFilterType = (type) => {setFilterType(type)}
+    const handleFilterInput = (input) => {setFilterInput(input)}
 
-    const handleFilterInput = (input) => {
-        setFilterInput(input)
-    }
     return (
         <div className='home'>
-                {/* Welcome page prior to log in */}
-                { !isAuthenticated && <Welcome /> }
+            { !isAuthenticated && <Welcome /> }
 
-                {/* GoalList loads when logged in */}
-                { isAuthenticated && <div>
-                    {/* Conditionally render error message */}
-                    { error && <div>{ error }</div> }
+            {/* GoalList loads when logged in */}
+            { isAuthenticated && <div>
 
-                    {/* Conditionally render isLoading or GoalList */}
-                    {/* { user && <h2 className="user-greeting">Greetings {user.given_name}</h2> } */}
-                    { isLoading && <Loading /> }
-                    { filteredGoals && <Filters
-                            goals={goals} 
-                            handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)}
-                            handleDynamicFilter={(filterBy, headerText) => handleDynamicFilter(filterBy, headerText)}
-                            handleFilterType={(type) => handleFilterType(type)}
-                            handleFilterInput={(input) => handleFilterInput(input)}
-                            filterType={filterType}
-                            filterInput={filterInput}
-                            listHeader={listHeader}
-                    />}
-                    { filteredGoals 
-                        && <GoalList 
-                            goals={goals}
-                            filteredGoals={filteredGoals}
-                            handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
-                    />}
-                    { filteredGoals 
-                        && <TagCloud 
-                            goals={goals} 
-                            handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
-                    />}
-                    
-                </div>}
-                <Footer />
+                { error && <div>{ error }</div> }
+                { isLoading && <Loading /> }
+
+                { filteredGoals && <div>
+                    <Filters
+                        goals={goals} 
+                        handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)}
+                        handleDynamicFilter={(filterBy, headerText) => handleDynamicFilter(filterBy, headerText)}
+                        handleFilterType={(type) => handleFilterType(type)}
+                        handleFilterInput={(input) => handleFilterInput(input)}
+                        filterType={filterType}
+                        filterInput={filterInput}
+                        listHeader={listHeader}
+                    />
+                    <GoalList 
+                        goals={goals}
+                        filteredGoals={filteredGoals}
+                        handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
+                    />
+                    <TagCloud 
+                        goals={goals} 
+                        handleFilter={(filterBy, headerText) => handleFilter(filterBy, headerText)} 
+                    />
+                </div>}   
+            </div>}
+            <Footer />
         </div>
     );
 }
