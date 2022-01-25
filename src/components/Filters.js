@@ -1,15 +1,8 @@
 import { useEffect } from 'react'
 
-const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, handleFilterInput, filterType, filterInput, listHeader}) => {
+import formatDate from '../utils/formatDate';
 
-    //Format display date shown when filtering by date
-    const formatDate = (date) => {
-        date = new Date(date);
-        const day = date.getDate() + 1;
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-        return `${month}/${day}/${year}`
-    }
+const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, handleFilterInput, filterType, filterInput, listHeader}) => {
 
     // Conditional rendering for filter goals buttons (all, current, achieved)
     const allActive = listHeader === 'All Todos' ?
@@ -103,27 +96,27 @@ const Filters = ({goals, handleFilter, handleDynamicFilter, handleFilterType, ha
 
     return ( 
         <div className="goal-list-header">
-                        <h2>{listHeader}</h2>
-                        <div>
-                            {pendingActive}
-                            {completedActive}
-                            {allActive}
-                        </div>
-                        <div className="dynamic-filter">                            
-                            <p>Filter by </p>
-                            <select 
-                                className="filterType-select"
-                                value={filterType}
-                                onChange={(e) => handleFilterType(e.target.value)}
-                            >
-                                <option value="tag">tag</option>
-                                <option value="date">date</option>
-                                <option value="priority">priority</option>
-                                <option value="difficulty">difficulty</option>
-                            </select>
-                            {renderInput(filterType)}   
-                        </div>                        
-                    </div>
+            <h2>{listHeader}</h2>
+            <div>
+                {pendingActive}
+                {completedActive}
+                {allActive}
+            </div>
+            <div className="dynamic-filter">                            
+                <p>Filter by </p>
+                <select 
+                    className="filterType-select"
+                    value={filterType}
+                    onChange={(e) => handleFilterType(e.target.value)}
+                >
+                    <option value="tag">tag</option>
+                    <option value="date">date</option>
+                    <option value="priority">priority</option>
+                    <option value="difficulty">difficulty</option>
+                </select>
+                {renderInput(filterType)}   
+            </div>                        
+        </div>
      );
 }
  

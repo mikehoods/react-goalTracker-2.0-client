@@ -2,7 +2,12 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { withAuthenticationRequired, useAuth0 } from '@auth0/auth0-react';
 
+import Difficulty from '../components/forms/selectors/Difficulty';
 import Loading from '../components/Loading';
+import Priority from '../components/forms/selectors/Priority';
+import StepInput from '../components/forms/StepInput';
+import TextInput from '../components/forms/TextInput';
+import TagList from '../components/forms/TagList';
 
 const CreateGoal = () => {
     const [title, setTitle] = useState("");
@@ -26,16 +31,14 @@ const CreateGoal = () => {
 
     const stepList = steps.map((step, index) => (
         <div key={index}>
-            <label>Step {index + 1}</label>
-            <div className="form-step">
-                <input
-                    type="text"
-                    required
-                    value={step.step}
+                <StepInput
+                    index={index}
+                    label={`Step ${index + 1}`}
                     onChange={(e) => handleStepChange(e, index)}
-                />
-                <i className="material-icons" onClick={(e) => handleDeleteStep(e, index)}>delete</i>
-            </div>            
+                    required
+                    setSteps={setSteps}
+                    value={step.step}                 
+                />    
         </div>  
     ))
 
@@ -47,17 +50,6 @@ const CreateGoal = () => {
         setTempStep("")
         const step = { "step": tempStep, "complete": false }
         setSteps([...steps, step])
-    }
-
-    const handleDeleteStep = (e, index) => {
-        setSteps(steps => steps.filter((step, i) => i !== index))
-        console.log(steps)
-    }
-
-    const handleDeleteTag = (e, index) => {
-        setTags(tags => tags.filter((tag, i) => i !== index))
-        const newTagsInput = tagsInput.replace("#" + tags[index], "")
-        setTagsInput(newTagsInput.replace("  ", " "))
     }
 
     const handleSubmit = async (e) => {
@@ -73,7 +65,6 @@ const CreateGoal = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(goal)
         }).then(() => {
-            console.log('new goal added');
             setIsPending(false);
             history.push('/');
         })
@@ -84,58 +75,33 @@ const CreateGoal = () => {
             <h2>Create A New Todo</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-main">
-                    <label>Todo Name</label>
-                    <input
-                        type="text"
+                    <TextInput
+                        label="Title"
+                        onChange={(e) => setTitle(e.target.value)}
                         required
                         value={title}
-                        onChange={(e) => setTitle(e.target.value)}
                     />
                     <div className="form-selectors">
-                        <div className="selector">
-                            <p>Difficulty</p>
-                            <select
-                                value={difficulty}
-                                onChange={(e) => setDifficulty(e.target.value)}
-                            >
-                                <option value="easy">easy</option>
-                                <option value="medium">medium</option>
-                                <option value="hard">hard</option>
-                                <option value="impossible">impossible</option>
-                            </select>
-                        </div>
-                        <div className="selector">
-                            <p>Priority</p>
-                            <select
-                                value={priority}
-                                onChange={(e) => setPriority(e.target.value)}
-                            >
-                                <option value="low">low</option>
-                                <option value="medium">medium</option>
-                                <option value="high">high</option>
-                            </select>
-                        </div>
+                        <Difficulty value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />
+                        <Priority value={priority} onChange={(e) => setPriority(e.target.value)} />
                     </div>
                     {stepList}
                     <div className="add-step">
                         <i className=" material-icons" onClick={handleAddStep}>add_to_photos</i>
                     </div>
-                    <label>Tags</label>
-                <input
-                    type="text"
-                    id="add-tag"
-                    value={tagsInput}
-                    onChange={handleTags}
-                />
-                <p className="input-help">Separate tags with #</p>
-                {tags.length > 0 && <div className="tag-cloud">
-                    {tags.map((tag, index) => (
-                        <div className="tag-div" key={index}>
-                            <p className="tag">#{tag}</p>
-                            <i className="material-icons tag-icon" onClick={(e) => handleDeleteTag(e, index)}>delete</i>
-                    </div> 
-                    ))}
-                </div>}
+                    <TextInput
+                        id="add-tag"
+                        label="Tags"
+                        onChange={handleTags}
+                        value={tagsInput}
+                    />
+                    <p className="input-help">Separate tags with #</p>
+                    {tags.length > 0 && <TagList 
+                        setTagsInput={setTagsInput}
+                        setTags={setTags}
+                        tagsInput={tagsInput}
+                        tags={tags}
+                    />}
                 </div>
                 <div className="create-goal-footer">
                     {!isPending && <button>Create Todo</button>}

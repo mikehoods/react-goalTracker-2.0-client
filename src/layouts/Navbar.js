@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
-import LoginButton from '../Auth0/LoginButton';
 import Logout from '../Auth0/LogoutButton';
 
 const Navbar = () => {

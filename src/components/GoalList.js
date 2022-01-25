@@ -1,21 +1,14 @@
 import { Link } from 'react-router-dom';
 
+import formatDate from '../utils/formatDate';
+
 const GoalList = ({goals, filteredGoals, handleFilter}) => {
     const goalComplete = (goal) => goal.achieved ?
     <div className="complete-goal-header">
         <p className="complete-text">Complete</p>
         <i className="material-icons goal-achieved">check</i>
     </div>
-    
     : ""
-
-    const formatDate = (date) => {
-        date = new Date(date);
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-        return `${month}/${day}/${year}`
-    }
 
     return (
         <div className="goal-list">
@@ -25,7 +18,6 @@ const GoalList = ({goals, filteredGoals, handleFilter}) => {
             {goals && filteredGoals.map((goal, index) => (
                 <div className="goal-preview" key={index}>
                     <div className="goal-header">
-                        
                         <div className="goal-title">
                             <Link to={`/goals/${goal._id}`} className="goal-link">
                                 <h2>{goal.title}</h2>
@@ -64,32 +56,31 @@ const GoalList = ({goals, filteredGoals, handleFilter}) => {
                             <div className="goal-step goal-step-incomplete" key={i}>
                                 <p className="goal-step-number">{i + 1}</p>
                                 <p className="goal-step-text">{step.step}</p> 
-                            </div>
-                            
+                            </div>   
                         ))}
                     </div>
-                        <div className="goal-footer">
-                            <p>Priority: 
-                                <span className="footer-span" 
-                                    onClick={() => {handleFilter(
-                                        goals.filter(g => g.priority === goal.priority), 
-                                        `Filtered by priority: ${goal.priority}`
-                                        )
+                    <div className="goal-footer">
+                        <p>Priority: 
+                            <span className="footer-span" 
+                                onClick={() => {handleFilter(
+                                    goals.filter(g => g.priority === goal.priority), 
+                                    `Filtered by priority: ${goal.priority}`
+                                    )
                                 }}>{goal.priority}
-                                </span>
-                            </p>
-                            <p>Difficulty:
-                                <span className="footer-span"
-                                    onClick={() => {handleFilter(
-                                        goals.filter(g => g.difficulty === goal.difficulty), 
-                                        `Filtered by difficulty: ${goal.difficulty}`
+                            </span>
+                        </p>
+                        <p>Difficulty:
+                            <span className="footer-span"
+                                onClick={() => {handleFilter(
+                                    goals.filter(g => g.difficulty === goal.difficulty), 
+                                    `Filtered by difficulty: ${goal.difficulty}`
                                         )
-                                    }}>{goal.difficulty}
-                                </span>
-                            </p>
-                        </div>
+                                }}>{goal.difficulty}
+                            </span>
+                        </p>
                     </div>
-                ))} 
+                </div>
+            ))} 
         </div>
     );
 }

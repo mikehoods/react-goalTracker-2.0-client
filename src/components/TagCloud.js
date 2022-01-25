@@ -12,11 +12,7 @@ const TagCloud = ({ goals, handleFilter }) => {
     
     useEffect(() => {
         const tagSet = new Set()
-    
-        userGoals.forEach(item => {
-            item.tags.forEach(tag => tagSet.add(tag))
-        })
-    
+        userGoals.forEach(item => {item.tags.forEach(tag => tagSet.add(tag))})
         setUserTags([...tagSet])
     }, [userGoals])
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
+import formatDate from "../utils/formatDate";
 import Loading from "../components/Loading";
 import useFetch from "../hooks/useFetch";
 
@@ -10,29 +11,21 @@ const GoalDetails = () => {
     const { data: goal, error, isLoading } = useFetch('https://much-to-do.herokuapp.com/todos/' + id );
     const history = useHistory();
 
-    const [title, setTitle] = useState("");
+    const [achieved, setAchieved] = useState(null);
     const [difficulty, setDifficulty] = useState("");
     const [priority, setPriority] = useState("");
     const [steps, setSteps] = useState([]);
     const [tags, setTags] = useState([]);
-    const [achieved, setAchieved] = useState(null);
-
-    const formatDate = (date) => {
-        date = new Date(date);
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-        return `${month}/${day}/${year}`
-    }
+    const [title, setTitle] = useState("");
 
     useEffect(() => {
         if (goal) {
-            setTitle(goal.title)
+            setAchieved(goal.achieved)
             setDifficulty(goal.difficulty)
             setPriority(goal.priority)
             setSteps(goal.steps)
             setTags(goal.tags)
-            setAchieved(goal.achieved)
+            setTitle(goal.title)
         }
     }, [goal])
 
@@ -51,11 +44,7 @@ const GoalDetails = () => {
     const handleCompleteStep = (e, index) => {
         setSteps([...steps], steps[index].complete = !steps[index].complete)
         const checkAchievement = steps.filter(step => step.complete === false)
-        if (checkAchievement.length > 0) {
-            setAchieved(false)
-        } else {
-            setAchieved(true)
-        }
+        checkAchievement.length > 0 ? setAchieved(false) : setAchieved(true)
         updateGoal()
     }
 
@@ -78,7 +67,6 @@ const GoalDetails = () => {
     }
     const updateGoal = () => {
         const updatedGoal = { title, difficulty, priority, steps, achieved, tags }
-
         fetch('https://much-to-do.herokuapp.com/todos/' + goal._id, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
@@ -88,16 +76,13 @@ const GoalDetails = () => {
         })
     }
 
-    const isAchieved = achieved ?
-        <i className="material-icons goal-achieved" onClick={handleAchieved}>check_circle</i>
-        :
-        <i className="material-icons goal-unachieved" onClick={handleAchieved}>done</i>
+    const isAchieved = achieved ? "check_circle" : "done"
 
     return (
         <div className="goal-details">
             { isLoading && <Loading /> }
             { error && <div>{ error }</div> }
-            
+
             { goal && (
                 <div className="goal-preview">
                     <div className="goal-header">
@@ -110,7 +95,7 @@ const GoalDetails = () => {
                                 <i className = "material-icons">edit_note</i>
                             </Link>
                             <i className="material-icons" onClick={handleDelete}>delete</i>
-                            {isAchieved}
+                            <i className="material-icons goal-achieved" onClick={handleAchieved}>{isAchieved}</i>
                         </div> 
                     </div>
                     {goal.tags.length > 0 && <div className="tag-cloud goal-tags">
@@ -137,20 +122,15 @@ const GoalDetails = () => {
                     </div>   
                     <div className="goal-footer">
                         <p>Priority: 
-                            <span className="footer-span"> 
-                                {goal.priority}
-                            </span>
+                            <span className="footer-span">{goal.priority}</span>
                         </p>
                         <p>Difficulty: 
-                            <span className="footer-span">
-                                {goal.difficulty}
-                            </span>
+                            <span className="footer-span">{goal.difficulty}</span>
                         </p>
                     </div>
                 </div>
             )}
-        </div>
-        
+        </div> 
     );
 }
  

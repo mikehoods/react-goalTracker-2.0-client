@@ -43,9 +43,7 @@ const Home = () => {
         <div className='home'>
             { !isAuthenticated && <Welcome /> }
 
-            {/* GoalList loads when logged in */}
             { isAuthenticated && <div>
-
                 { error && <div>{ error }</div> }
                 { isLoading && <Loading /> }
 
