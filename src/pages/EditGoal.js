@@ -7,7 +7,7 @@ import Loading from '../components/Loading';
 import Priority from '../components/forms/selectors/Priority';
 import TagList from '../components/forms/TagList';
 import TextInput from '../components/forms/TextInput';
-import StepInput from '../components/forms/StepInput';
+import StepList from '../components/forms/StepList';
 import useFetch from "../hooks/useFetch";
 
 const EditGoal = () => {
@@ -25,19 +25,6 @@ const EditGoal = () => {
     const [title, setTitle] = useState("");
 
     const [isPending, setIsPending] = useState(false);
-
-    const stepList = steps.map((step, index) => (
-        <div key={index}>
-            <StepInput
-                index={index}
-                label={`Step ${index + 1}`}
-                onChange={(e) => handleStepChange(e, index)}
-                required
-                setSteps={setSteps}
-                value={step.step}
-            />
-        </div>  
-    ))
 
     useEffect(() => {
         if (goal) {
@@ -61,9 +48,6 @@ const EditGoal = () => {
         const step = { "step": tempStep, "complete": false }
         setSteps([...steps, step])
         setTempStep("")
-    }
-    const handleStepChange = (e, index) => {
-        setSteps([...steps], steps[index].step = e.target.value)
     }
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -101,7 +85,10 @@ const EditGoal = () => {
                         value={priority}
                     />
                 </div>
-                {stepList}                
+                <StepList
+                    setSteps={setSteps}
+                    steps={steps}
+                />                
                 <div className="add-step">
                     <i className=" material-icons" onClick={handleAddStep}>add_to_photos</i>
                 </div>

@@ -5,7 +5,7 @@ import { withAuthenticationRequired, useAuth0 } from '@auth0/auth0-react';
 import Difficulty from '../components/forms/selectors/Difficulty';
 import Loading from '../components/Loading';
 import Priority from '../components/forms/selectors/Priority';
-import StepInput from '../components/forms/StepInput';
+import StepList from '../components/forms/StepList';
 import TextInput from '../components/forms/TextInput';
 import TagList from '../components/forms/TagList';
 
@@ -28,30 +28,11 @@ const CreateGoal = () => {
         tempTags.delete("")
         setTags([...tempTags])
     }
-
-    const stepList = steps.map((step, index) => (
-        <div key={index}>
-                <StepInput
-                    index={index}
-                    label={`Step ${index + 1}`}
-                    onChange={(e) => handleStepChange(e, index)}
-                    required
-                    setSteps={setSteps}
-                    value={step.step}                 
-                />    
-        </div>  
-    ))
-
-    const handleStepChange = (e, index) => {
-        setSteps([...steps], steps[index].step = e.target.value)
-    }
-
     const handleAddStep = (e) => {
         setTempStep("")
         const step = { "step": tempStep, "complete": false }
         setSteps([...steps, step])
     }
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         const achieved = false
@@ -85,7 +66,10 @@ const CreateGoal = () => {
                         <Difficulty value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />
                         <Priority value={priority} onChange={(e) => setPriority(e.target.value)} />
                     </div>
-                    {stepList}
+                    <StepList 
+                        setSteps={setSteps}
+                        steps={steps}
+                    />
                     <div className="add-step">
                         <i className=" material-icons" onClick={handleAddStep}>add_to_photos</i>
                     </div>
