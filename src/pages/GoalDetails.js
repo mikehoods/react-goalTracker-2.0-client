@@ -8,7 +8,7 @@ import useFetch from "../hooks/useFetch";
 
 const GoalDetails = () => {
     const { id } = useParams();
-    const { data: goal, error, isLoading } = useFetch('https://much-to-do.herokuapp.com/todos/' + id );
+    const { data: goal, error, isLoading } = useFetch('https://much-to-do-server.onrender.com/todos/' + id );
     const history = useHistory();
 
     const [achieved, setAchieved] = useState(null);
@@ -34,7 +34,7 @@ const GoalDetails = () => {
     }, [achieved])
 
     const handleDelete = () => {
-        fetch('https://much-to-do.herokuapp.com/todos/' + goal._id, {
+        fetch('https://much-to-do-server.onrender.com/todos/' + goal._id, {
             method: 'DELETE'
         }).then(() => {
             history.push('/');
@@ -67,7 +67,7 @@ const GoalDetails = () => {
     }
     const updateGoal = () => {
         const updatedGoal = { title, difficulty, priority, steps, achieved, tags }
-        fetch('https://much-to-do.herokuapp.com/todos/' + goal._id, {
+        fetch('https://much-to-do-server.onrender.com/todos/' + goal._id, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedGoal)

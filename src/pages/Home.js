@@ -10,7 +10,7 @@ import useFetch from '../hooks/useFetch';
 import Welcome from './Welcome';
 
 const Home = () => {
-    const { data, isLoading, error } = useFetch('https://much-to-do.herokuapp.com/todos')
+    const { data, isLoading, error } = useFetch('https://much-to-do-server.onrender.com/todos')
     const { user, isAuthenticated } = useAuth0();
     const [goals, setGoals] = useState(null);
     const [filteredGoals, setFilteredGoals] = useState(null)

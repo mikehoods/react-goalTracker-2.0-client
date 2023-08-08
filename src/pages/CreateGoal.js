@@ -41,7 +41,7 @@ const CreateGoal = () => {
         
         setIsPending(true);
 
-        fetch('https://much-to-do.herokuapp.com/todos/', {
+        fetch('https://much-to-do-server.onrender.com/todos/', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(goal)
